@@ -37,6 +37,27 @@ export class Resume {
     },
   ];
 
+  educations = [
+    {
+      institution: 'State University',
+      dateRange: '2011 - 2015',
+      items: [
+        'Bachelor of Science in Computer Science',
+        'Graduated with Honors',
+        'Relevant Coursework: Data Structures, Algorithms, Web Development, Database Systems',
+      ],
+    },
+    {
+      institution: 'Community College',
+      dateRange: '2009 - 2011',
+      items: [
+        'Associate Degree in Information Technology',
+        'Dean’s List for 4 semesters',
+        'Relevant Coursework: Programming Fundamentals, Network Basics, System Administration',
+      ],
+    },
+  ];
+
   objective =
     'I have 15 years’ experience as a full stack developer. I am seeking a senior development position that will allow for growth in my programming career. In this position, I hope to collaborate with and lead other developers to produce software products that satisfy product owner needs using current programming methodologies.';
 }

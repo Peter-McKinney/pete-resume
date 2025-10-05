@@ -1,11 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { Education } from './education.model';
+import { Card } from '../../common/card/card.model';
+import { ResumeCard } from '../../common/card/card';
 
 @Component({
   selector: 'app-resume-education-section',
-  imports: [],
+  imports: [ResumeCard],
   templateUrl: './resume-education-section.html',
-  styleUrl: './resume-education-section.scss'
+  styleUrl: './resume-education-section.scss',
 })
 export class ResumeEducationSection {
+  educations = input.required<Education[]>();
 
+  cards = computed<Card[]>(() => {
+    return this.educations().map((education) => {
+      return {
+        title: education.institution,
+        subTitle: education.dateRange,
+        items: education.items,
+      };
+    });
+  });
 }

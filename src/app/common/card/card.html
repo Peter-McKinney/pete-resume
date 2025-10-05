@@ -1,0 +1,7 @@
+<div [class.alternate-card]="isAlternate()" [class.card]="!isAlternate()">
+  <div class="dates-header">
+    <h3>{{ card().title }}</h3>
+    <span>{{ card().subTitle }}</span>
+  </div>
+  <p *ngFor="let item of card().items">{{ item }}</p>
+</div>
