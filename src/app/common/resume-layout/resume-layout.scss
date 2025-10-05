@@ -22,10 +22,15 @@
 .sidebar-layout {
   display: flex;
   min-width: 257px;
-  border-right: 3px solid mocha.$surface2;
+  border: 1px solid mocha.$surface2;
   bottom: 0;
   justify-content: center;
   background: mocha.$crust;
+
+  margin: 8px;
+  border-radius: 8px;
+
+  box-shadow: mocha.$crust 3px 3px 3px 3px;
 
   padding: 0 20px;
   @media (max-width: 768px) {
@@ -36,7 +41,9 @@
 .main-layout {
   display: flex;
   flex-direction: column;
-  margin: 10px 40px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  margin-right: 10px;
 
   @media (max-width: 768px) {
     margin: 5px 5px;

@@ -1,0 +1,11 @@
+<div class="alternate-card">
+  <div class="dates-header">
+    <h3>{{ workExperience().title }}</h3>
+    <span>{{ workExperience().dateRange }}</span>
+  </div>
+  <h4>{{ workExperience().companyName }}</h4>
+
+  <p *ngFor="let experience of workExperience().experiences">
+    {{ experience }}
+  </p>
+</div>
