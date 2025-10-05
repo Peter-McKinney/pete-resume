@@ -1,0 +1,21 @@
+@use "@catppuccin/palette/scss/mocha" as mocha;
+
+.layout-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar-layout {
+  display: flex;
+  width: 300px;
+  border-right: 3px solid mocha.$surface2;
+  height: 100vh;
+  justify-content: center;
+  background: mocha.$crust;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  margin: 0 40px;
+}

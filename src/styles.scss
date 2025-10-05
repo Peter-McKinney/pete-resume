@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@catppuccin/palette/scss/mocha" as mocha;
+
+@font-face {
+  font-family: "JetBrains Mono", monospace;
+  src: url("assets/JetBrainsMono-Regular-subset.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+  font-family: "JetBrains Mono", monospace;
+  background: mocha.$base;
+  color: mocha.$text;
+}
+
+a {
+  color: mocha.$blue;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  border-bottom: 2px dotted mocha.$surface2;
+  color: mocha.$subtext0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  background: mocha.$mantle;
+  border: 1px solid mocha.$surface2;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.inner-card {
+  @extend .card;
+  background: mocha.$surface0;
+  border: 1px solid mocha.$mantle;
+}

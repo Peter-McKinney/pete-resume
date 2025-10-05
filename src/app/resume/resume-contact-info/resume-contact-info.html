@@ -1,0 +1,10 @@
+<div class="contact-info-container">
+  <span>{{ locationDisplay() }}</span>
+  <span>{{ contactInfo().phone }}</span>
+  <span>{{ contactInfo().email }}</span>
+  <span>
+    <a [href]="contactInfo().github" target="_blank" rel="noopener noreferrer"
+      >GitHub</a
+    >
+  </span>
+</div>

@@ -1,0 +1,10 @@
+.contact-info-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  span + span:before {
+    margin-right: 10px;
+    content: "| ";
+  }
+}
