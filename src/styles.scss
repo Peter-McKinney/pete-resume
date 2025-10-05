@@ -44,7 +44,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  border-bottom: 2px dotted mocha.$surface2;
+  border-bottom: 4px inset mocha.$surface2;
   color: mocha.$text;
 }
 
@@ -55,17 +55,18 @@ h2 {
 h4 {
   font-style: italic;
   color: mocha.$subtext0;
+  border-bottom: none;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 
   background: mocha.$mantle;
   border: 1px solid mocha.$surface2;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: mocha.$crust 3px 3px 3px 3px;
 
   padding: 16px;
   @media (max-width: 768px) {
@@ -73,10 +74,16 @@ h4 {
   }
 }
 
-.inner-card {
-  @extend .card;
-  background: mocha.$surface0;
-  border: 1px solid mocha.$mantle;
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dates-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .alternate-card {

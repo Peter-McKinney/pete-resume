@@ -21,7 +21,7 @@
 
 .sidebar-layout {
   display: flex;
-  width: fit-content;
+  min-width: 257px;
   border-right: 3px solid mocha.$surface2;
   bottom: 0;
   justify-content: center;

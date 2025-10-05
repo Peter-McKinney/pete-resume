@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
+import { ResumeObjective } from './resume-objective/resume-objective';
+import { ResumeWorkExperienceSection } from './resume-work-experience-section/resume-work-experience-section';
+import { ResumeEducationSection } from './resume-education-section/resume-education-section';
 
 @Component({
   selector: 'app-resume',
-  imports: [],
+  imports: [
+    ResumeObjective,
+    ResumeWorkExperienceSection,
+    ResumeEducationSection,
+  ],
   templateUrl: './resume.html',
   styleUrl: './resume.scss',
 })
