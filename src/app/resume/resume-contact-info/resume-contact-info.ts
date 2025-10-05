@@ -13,4 +13,12 @@ export class ResumeContactInfo {
   locationDisplay = computed<string>(() => {
     return `${this.contactInfo().city}, ${this.contactInfo().stateAbbreviation}`;
   });
+
+  mailToLink = computed<string>(() => {
+    return `mailto:${this.contactInfo().email}`;
+  });
+
+  telLink = computed<string>(() => {
+    return `tel:${this.contactInfo().phone}`;
+  });
 }

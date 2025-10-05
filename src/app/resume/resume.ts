@@ -1,24 +1,12 @@
 import { Component } from '@angular/core';
-import { ResumeHeader } from './resume-header/resume-header';
-import { Header } from './resume-header/resume-header.model';
 
 @Component({
   selector: 'app-resume',
-  imports: [ResumeHeader],
+  imports: [],
   templateUrl: './resume.html',
   styleUrl: './resume.scss',
 })
 export class Resume {
-  resumeHeader: Header = {
-    displayName: 'Pete McKinney',
-    contactInfo: {
-      email: 'pmckinney.development@gmail.com',
-      phone: '8503771940',
-      github: 'https://github.com/Peter-McKinney',
-      city: 'Mobile',
-      stateAbbreviation: 'Al',
-    },
-    objective:
-      'To obtain a challenging position as a software engineer where I can utilize my skills and experience to contribute to the success of the company.',
-  };
+  objective =
+    'I have 15 years’ experience as a full stack developer. I am seeking a senior development position that will allow for growth in my programming career. In this position, I hope to collaborate with and lead other developers to produce software products that satisfy product owner needs using current programming methodologies.';
 }
