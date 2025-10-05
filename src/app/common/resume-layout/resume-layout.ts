@@ -13,11 +13,11 @@ export class ResumeLayout {
   header: Header = {
     displayName: 'Pete McKinney',
     contactInfo: {
-      email: 'pmckinney.development@gmail.com',
-      phone: '8503771940',
+      email: 'fake@fake.com',
+      phone: '1231231234',
       github: 'https://github.com/Peter-McKinney',
-      city: 'Mobile',
-      stateAbbreviation: 'Al',
+      city: 'Fake City',
+      stateAbbreviation: 'Fl',
     },
   };
 }
