@@ -1,9 +1,8 @@
 import { Component, computed, input } from '@angular/core';
-import { ResumeWorkExperienceRow } from '../resume-work-experience-row/resume-work-experience-row';
-import { WorkExperience } from '../resume-work-experience-row/work-experience.model';
 import { CommonModule } from '@angular/common';
 import { Card } from '../../common/card/card.model';
 import { ResumeCard } from '../../common/card/card';
+import { WorkExperience } from './work-experience.model';
 
 @Component({
   selector: 'app-resume-work-experience-section',
@@ -19,6 +18,7 @@ export class ResumeWorkExperienceSection {
       return {
         title: workExperience.title,
         subTitle: workExperience.dateRange,
+        itemsHeader: workExperience.companyName,
         items: workExperience.experiences,
       };
     });

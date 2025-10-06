@@ -41,8 +41,8 @@ export class Resume {
     {
       institution: 'State University',
       dateRange: '2011 - 2015',
+      itemsHeader: 'Bachelor of Science in Computer Science',
       items: [
-        'Bachelor of Science in Computer Science',
         'Graduated with Honors',
         'Relevant Coursework: Data Structures, Algorithms, Web Development, Database Systems',
       ],
@@ -50,6 +50,7 @@ export class Resume {
     {
       institution: 'Community College',
       dateRange: '2009 - 2011',
+      itemsHeader: 'Bachelor of Science in Computer Science',
       items: [
         'Associate Degree in Information Technology',
         'Dean’s List for 4 semesters',
