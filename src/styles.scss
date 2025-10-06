@@ -27,7 +27,7 @@ p {
   border: 1px solid mocha.$overlay2;
   border-radius: 8px;
   background: mocha.$crust;
-  color: mocha.$subtext1;
+  color: mocha.$mauve;
 
   box-shadow: mocha.$crust 3px 3px 3px 3px;
 
@@ -52,13 +52,17 @@ h6 {
   box-shadow: mocha.$crust 0px 3px 0px 0px;
 }
 
+h1 {
+  color: mocha.$flamingo;
+}
+
 h2 {
   margin-bottom: 10px;
 }
 
 h4 {
   font-style: italic;
-  color: mocha.$subtext0;
+  color: mocha.$yellow;
   border: none;
   box-shadow: none;
 }
@@ -89,9 +93,17 @@ h4 {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  color: mocha.$sapphire;
 }
 
 .alternate-card {
   @extend .card;
   background: mocha.$surface0;
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 }
