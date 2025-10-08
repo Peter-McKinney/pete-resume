@@ -3,7 +3,7 @@ import { Resume } from './resume/resume';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: ':resumeId',
     component: Resume,
   },
 ];

@@ -1,7 +1,13 @@
 <div class="resume-container">
-  <app-resume-objective [objective]="objective" />
+  @if (objective()) {
+    <app-resume-objective [objective]="objective()?.text!" />
+  }
 
-  <app-resume-work-experience-section [workExperiences]="workExperiences" />
+  @if (workExperiences()) {
+    <app-resume-work-experience-section
+      [workExperiences]="workExperiences()!"
+    />
+  }
 
   <app-resume-education-section [educations]="educations" />
 </div>
