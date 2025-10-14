@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResumeContactInfo } from './resume-contact-info';
+import { CreateWorkExperience } from './create-work-experience';
 
-describe('ResumeContactInfo', () => {
-  let component: ResumeContactInfo;
-  let fixture: ComponentFixture<ResumeContactInfo>;
+describe('CreateWorkExperience', () => {
+  let component: CreateWorkExperience;
+  let fixture: ComponentFixture<CreateWorkExperience>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ResumeContactInfo],
+      imports: [CreateWorkExperience],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ResumeContactInfo);
+    fixture = TestBed.createComponent(CreateWorkExperience);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

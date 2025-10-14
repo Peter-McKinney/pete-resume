@@ -8,9 +8,8 @@ describe('ResumeLayout', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ResumeLayout]
-    })
-    .compileComponents();
+      imports: [ResumeLayout],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ResumeLayout);
     component = fixture.componentInstance;

@@ -3,7 +3,7 @@
     <h3>{{ card().title }}</h3>
     <span>{{ card().subTitle }}</span>
   </div>
-  @if(card().itemsHeader) {
+  @if (card().itemsHeader) {
     <h4>{{ card().itemsHeader }}</h4>
   }
   <p *ngFor="let item of card().items">{{ item }}</p>

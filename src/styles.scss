@@ -107,3 +107,47 @@ h4 {
     print-color-adjust: exact;
   }
 }
+
+input,
+textarea {
+  @extend p;
+}
+
+label {
+  color: mocha.$yellow;
+}
+
+.form-array-control {
+  @extend .alternate-card;
+}
+
+.form-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  @extend p;
+
+  background: mocha.$surface1;
+  color: mocha.$flamingo;
+
+  box-shadow: mocha.$crust 3px 3px 3px 3px;
+}
+
+.actions-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.error-message {
+  color: mocha.$red;
+}

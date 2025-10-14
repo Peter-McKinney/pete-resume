@@ -8,9 +8,8 @@ describe('ResumeObjective', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ResumeObjective]
-    })
-    .compileComponents();
+      imports: [ResumeObjective],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ResumeObjective);
     component = fixture.componentInstance;

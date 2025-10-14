@@ -1,0 +1,18 @@
+<div class="experience-container">
+  @for (experience of experiences().controls; track $index; let j = $index) {
+    <div class="form-controls">
+      <div class="form-array-control">
+        <label>Experience Paragraph:</label>
+        <textarea
+          [formControlName]="j"
+          rows="5"
+          placeholder="A paragraph describing an experience"
+        ></textarea>
+      </div>
+    </div>
+  }
+
+  <div class="actions-container">
+    <button type="button" (click)="addExperience()">Add Experience</button>
+  </div>
+</div>
