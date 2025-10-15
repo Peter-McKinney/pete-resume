@@ -2,12 +2,12 @@
   <h2>Work Experience</h2>
 
   <div class="card-list">
-    <ng-content *ngFor="let card of cards()">
+    @for(card of cards(); track card.title) {
       <app-resume-card
-        *ngFor="let card of cards(); let i = index"
         [card]="card"
         [isAlternate]="true"
       />
-    </ng-content>
+
+  }
   </div>
 </div>

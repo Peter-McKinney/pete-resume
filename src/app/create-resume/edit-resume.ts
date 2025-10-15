@@ -142,6 +142,15 @@ export class EditResume {
     return this.resumeForm.get('educations') as FormArray;
   }
 
+  async saveResume() {
+    await this.createResume();
+  }
+
+  async saveAndExit() {
+    await this.createResume();
+    this.router.navigate([this.resumeId]);
+  }
+
   async createResume() {
     this.resumeForm.markAllAsDirty();
 
@@ -154,8 +163,6 @@ export class EditResume {
         ...this.resumeForm.value,
         resumeId: this.resumeId,
       } as ResumeInstance);
-
-      this.router.navigate([this.resumeId]);
     }
   }
 }

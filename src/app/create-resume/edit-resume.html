@@ -2,7 +2,6 @@
   <form
     class="resume-form-container"
     [formGroup]="resumeForm"
-    (ngSubmit)="createResume()"
   >
     <div class="form-control">
       <label for="objective">Objective:</label>
@@ -42,9 +41,12 @@
     </div>
 
     <div class="sticky-footer">
-      <button type="submit">
+      <button type="submit" (click)="saveResume()">
         <span class="material-symbols-outlined"> save </span>
-        Save Resume
+        Save Resume</button>
+      <button type="submit" (click)="saveAndExit()">
+        <span class="material-symbols-outlined"> arrow_outward </span>
+        Save & Exit
       </button>
     </div>
   </form>

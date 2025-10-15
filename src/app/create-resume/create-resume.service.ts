@@ -1,7 +1,11 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import {
+  addDoc,
+  collection,
+  Firestore,
+  serverTimestamp,
+} from '@angular/fire/firestore';
 import { ResumeInstance } from '../resume/resume.model';
-import { serverTimestamp } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root',
