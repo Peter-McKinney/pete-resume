@@ -1,4 +1,4 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import {
   ControlContainer,
   FormArray,
@@ -10,13 +10,21 @@ import {
   Validators,
 } from '@angular/forms';
 import { CreateExperience } from '../create-experience/create-experience';
+import { FormArrayCard } from '../../common/form-array-card/form-array-card';
+import { FormArraySection } from '../../common/form-array-section/form-array-section';
+import { FormResumeControl } from '../../common/form-control/form-control';
 
 @Component({
   selector: 'app-create-work-experience',
-  imports: [ReactiveFormsModule, CreateExperience],
+  imports: [
+    ReactiveFormsModule,
+    FormArrayCard,
+    FormArraySection,
+    FormResumeControl,
+    CreateExperience,
+  ],
   templateUrl: './create-work-experience.html',
   styleUrl: './create-work-experience.scss',
-  viewProviders: [{ provide: ControlContainer, useExisting: FormArrayName }],
 })
 export class CreateWorkExperience {
   workExperiences = input.required<FormArray>();
@@ -49,5 +57,9 @@ export class CreateWorkExperience {
         ]),
       }),
     );
+  }
+
+  removeWorkExperience(index: number) {
+    this.workExperiences().removeAt(index);
   }
 }

@@ -27,10 +27,7 @@
       <h2>Work Experience</h2>
 
       @if (workExperiences) {
-        <app-create-work-experience
-          formArrayName="workExperiences"
-          [workExperiences]="workExperiences"
-        />
+        <app-create-work-experience [workExperiences]="workExperiences" />
       }
     </div>
 

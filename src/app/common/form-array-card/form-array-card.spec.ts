@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateEducationNotes } from './create-education-notes';
+import { FormArrayCard } from './form-array-card';
 
-describe('CreateEducationNotes', () => {
-  let component: CreateEducationNotes;
-  let fixture: ComponentFixture<CreateEducationNotes>;
+describe('FormArrayCard', () => {
+  let component: FormArrayCard;
+  let fixture: ComponentFixture<FormArrayCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreateEducationNotes],
+      imports: [FormArrayCard],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CreateEducationNotes);
+    fixture = TestBed.createComponent(FormArrayCard);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

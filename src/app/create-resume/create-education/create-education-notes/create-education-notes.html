@@ -1,24 +1,26 @@
 <div class="form-resume-section">
-  @for (note of notes().controls; track $index; let j = $index) {
+  @for (note of notes().controls; track $index; let i = $index) {
     <div class="form-controls">
       <div class="form-array-control">
         <label>Education Notes:</label>
         <textarea
-          [formControlName]="j"
+          [formControlName]="i"
           rows="5"
           placeholder="A paragraph describing an experience"
         ></textarea>
+
+        <div class="actions-container">
+          <button type="button" (click)="removeNote(i)">
+            <span class="material-symbols-outlined"> delete </span>
+          </button>
+        </div>
       </div>
 
-        <div class="error-message" aria-live="assertive">
-          @if (
-            notesControl(j).invalid &&
-            notesControl(j).dirty &&
-            notesControl(j).errors?.["required"]
-          ) {
-            Company Name is required
-          }
-        </div>
+      <div class="error-message" aria-live="assertive">
+        @if (note.invalid && note.dirty && note.errors?.["required"]) {
+          Note is required
+        }
+      </div>
     </div>
   }
 

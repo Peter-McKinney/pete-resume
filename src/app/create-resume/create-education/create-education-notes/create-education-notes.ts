@@ -22,7 +22,7 @@ export class CreateEducationNotes {
     this.notes().push(new FormControl('', [Validators.required]));
   }
 
-  notesControl(i: number): FormControl {
-    return this.notes().at(i) as FormControl;
+  removeNote(index: number) {
+    this.notes().removeAt(index);
   }
 }

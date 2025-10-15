@@ -1,0 +1,15 @@
+<div class="card">
+  <span class="title"
+    ><em>Item: <ng-content select="[cardTitle]" /> </em
+  ></span>
+
+  <div class="form-controls">
+    <ng-content select="[cardBody]" />
+  </div>
+
+  <button type="button" (click)="delete()">
+    <span class="material-symbols-outlined"> delete </span>
+  </button>
+
+  <ng-content [cardActions] />
+</div>

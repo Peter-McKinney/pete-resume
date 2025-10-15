@@ -1,72 +1,23 @@
-<div class="form-resume-section">
+<app-form-array-section (addClicked)="addWorkExperience()">
   @for (
     workExperience of workExperiences().controls;
     track $index;
     let i = $index
   ) {
-    <div class="card">
-      <span
-        ><em>work experience {{ i + 1 }}</em></span
-      >
-      <div class="form-controls" [formGroupName]="i">
-        <div class="form-array-control">
-          <label>Title:</label>
-          <input formControlName="title" placeholder="Job Title" />
-        </div>
+    <app-form-array-card (deleteClicked)="removeWorkExperience(i)">
+      <ng-content cardTitle>{{ i + 1 }}</ng-content>
+      <ng-content cardBody>
+        <app-form-control name="title" [control]="titleControl(i)" />
 
-        <div class="error-message" aria-live="assertive">
-          @if (
-            titleControl(i).invalid &&
-            titleControl(i).dirty &&
-            titleControl(i).errors?.["required"]
-          ) {
-            Title is required
-          }
-        </div>
+        <app-form-control name="Year Range" [control]="dateRangeControl(i)" />
 
-        <div class="form-array-control">
-          <label>Year Range:</label>
-          <input
-            formControlName="dateRange"
-            placeholder="Year range job was active (2009 - 2011)"
-          />
-        </div>
-
-        <div class="error-message" aria-live="assertive">
-          @if (
-            dateRangeControl(i).invalid &&
-            dateRangeControl(i).dirty &&
-            dateRangeControl(i).errors?.["required"]
-          ) {
-            Year Range is required
-          }
-        </div>
-
-        <div class="form-array-control">
-          <label>Company Name:</label>
-          <input formControlName="companyName" placeholder="Name of Company" />
-        </div>
-
-        <div class="error-message" aria-live="assertive">
-          @if (
-            companyNameControl(i).invalid &&
-            companyNameControl(i).dirty &&
-            companyNameControl(i).errors?.["required"]
-          ) {
-            Company Name is required
-          }
-        </div>
-
-        <app-create-experience
-          formArrayName="experiences"
-          [experiences]="experiences(i)"
+        <app-form-control
+          name="Company Name"
+          [control]="companyNameControl(i)"
         />
-      </div>
-    </div>
-  }
 
-  <button type="button" (click)="addWorkExperience()">
-    <span class="material-symbols-outlined"> add_circle </span>
-    Add Work Experience
-  </button>
-</div>
+        <app-create-experience [experiences]="experiences(i)" />
+      </ng-content>
+    </app-form-array-card>
+  }
+</app-form-array-section>

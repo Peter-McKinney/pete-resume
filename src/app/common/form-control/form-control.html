@@ -1,0 +1,10 @@
+<div class="form-array-control">
+  <label>{{ name() }}:</label>
+  <input [formControl]="control()" [placeholder]="name()" />
+</div>
+
+<div class="error-message" aria-live="assertive">
+  @if (control().invalid && control().dirty && control().errors?.["required"]) {
+    {{ name() }} is required
+  }
+</div>
