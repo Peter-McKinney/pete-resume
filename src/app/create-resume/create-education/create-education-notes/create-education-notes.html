@@ -1,33 +1,12 @@
-<div class="form-resume-section">
+<app-form-array-section>
   @for (note of notes().controls; track $index; let i = $index) {
-    <div class="form-controls">
-      <div class="form-array-control">
-        <label>Education Notes:</label>
-        <textarea
-          [formControlName]="i"
-          rows="5"
-          placeholder="A paragraph describing an experience"
-        ></textarea>
+    <app-form-array-sub-section
+      (addClicked)="addNote()"
+      (deleteClicked)="removeNote(i)">
 
-        <div class="actions-container">
-          <button type="button" (click)="removeNote(i)">
-            <span class="material-symbols-outlined"> delete </span>
-          </button>
-        </div>
-      </div>
-
-      <div class="error-message" aria-live="assertive">
-        @if (note.invalid && note.dirty && note.errors?.["required"]) {
-          Note is required
-        }
-      </div>
-    </div>
+      <app-form-control name="Education Note" [control]="note" [rows]="5">
+      </app-form-control>
+    </app-form-array-sub-section>
   }
 
-  <div class="actions-container">
-    <button type="button" (click)="addNote()">
-      <span class="material-symbols-outlined"> add_circle </span>
-      Add Education Note
-    </button>
-  </div>
-</div>
+</app-form-array-section>

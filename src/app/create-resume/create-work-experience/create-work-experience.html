@@ -5,9 +5,9 @@
     let i = $index
   ) {
     <app-form-array-card (deleteClicked)="removeWorkExperience(i)">
-      <ng-content cardTitle>{{ i + 1 }}</ng-content>
+      <ng-content cardTitle>Work Experience: {{ i + 1 }}</ng-content>
       <ng-content cardBody>
-        <app-form-control name="title" [control]="titleControl(i)" />
+        <app-form-control name="Title" [control]="titleControl(i)" />
 
         <app-form-control name="Year Range" [control]="dateRangeControl(i)" />
 

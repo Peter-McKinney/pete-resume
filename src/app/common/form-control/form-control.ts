@@ -10,4 +10,5 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class FormResumeControl {
   name = input.required<string>();
   control = input.required<FormControl>();
+  rows = input<number>();
 }
