@@ -11,6 +11,7 @@ import {
 import { Education } from '../resume/resume-education-section/education.model';
 import { Objective } from '../resume/resume-objective/objective.model';
 import { ResumeInstance } from '../resume/resume.model';
+import { CollectionReference } from '@angular/fire/firestore/lite';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +38,18 @@ export class ResumeStore {
     );
   }
 
+  getLatestQuery(ref: CollectionReference, resumeId: string) {
+    const q = query(
+      ref,
+      where('resumeId', '==', resumeId),
+      where('createdAt', '!=', null),
+      orderBy('createdAt', 'desc'),
+      limit(1),
+    );
+
+    return q;
+  }
+
   getObjective(resumeId: string): Observable<Objective> {
     if (!resumeId) {
       throw new Error('Resume ID is required to get objective');
@@ -44,12 +57,7 @@ export class ResumeStore {
 
     const objectiveRef = collection(this.firestore, `objectives`);
 
-    const q = query(
-      objectiveRef,
-      where('resumeId', '==', resumeId),
-      orderBy('createdAt', 'desc'),
-      limit(1),
-    );
+    const q = this.getLatestQuery(objectiveRef, resumeId);
 
     return collectionData(q, { idField: 'id' }).pipe(
       map((objectives) => objectives[0] as Objective),
@@ -63,11 +71,7 @@ export class ResumeStore {
 
     const workRef = collection(this.firestore, `work-experiences`);
 
-    const q = query(
-      workRef,
-      where('resumeId', '==', resumeId),
-      orderBy('createdAt', 'desc'),
-    );
+    const q = this.getLatestQuery(workRef, resumeId);
 
     const workExperiences$ = collectionData(q, { idField: 'id' }).pipe(
       map((workExperiences) => {
@@ -85,11 +89,7 @@ export class ResumeStore {
 
     const educationRef = collection(this.firestore, `educations`);
 
-    const q = query(
-      educationRef,
-      where('resumeId', '==', resumeId),
-      orderBy('createdAt', 'desc'),
-    );
+    const q = this.getLatestQuery(educationRef, resumeId);
 
     const educations$ = collectionData(q, { idField: 'id' }).pipe(
       map((educations) => {
