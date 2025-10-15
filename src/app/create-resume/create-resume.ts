@@ -8,10 +8,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { CreateWorkExperience } from './create-work-experience/create-work-experience';
+import { CreateEducation } from './create-education/create-education';
 
 @Component({
   selector: 'app-create-resume',
-  imports: [ReactiveFormsModule, CreateWorkExperience],
+  imports: [ReactiveFormsModule, CreateWorkExperience, CreateEducation],
   templateUrl: './create-resume.html',
   styleUrl: './create-resume.scss',
 })
@@ -33,10 +34,24 @@ export class CreateResume {
         ]),
       }),
     ]),
+    educations: this.formBuilder.array([
+      new FormGroup({
+        institution: new FormControl('', [Validators.required]),
+        dateRange: new FormControl('', [Validators.required]),
+        location: new FormControl('', [Validators.required]),
+        notes: this.formBuilder.array([
+          new FormControl('', [Validators.required]),
+        ]),
+      }),
+    ]),
   });
 
   get workExperiences(): FormArray {
     return this.resumeForm.get('workExperiences') as FormArray;
+  }
+
+  get educations(): FormArray {
+    return this.resumeForm.get('educations') as FormArray;
   }
 
   createResume() {

@@ -1,6 +1,6 @@
 <div class="resume-container">
   @if (objective()) {
-    <app-resume-objective [objective]="objective()?.text!" />
+    <app-resume-objective [objective]="objective()!.text" />
   }
 
   @if (workExperiences()) {

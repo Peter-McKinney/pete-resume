@@ -1,10 +1,10 @@
-<div class="work-experience-container">
-  <div class="card">
-    @for (
-      workExperience of workExperiences().controls;
-      track $index;
-      let i = $index
-    ) {
+<div class="form-resume-section">
+  @for (
+    workExperience of workExperiences().controls;
+    track $index;
+    let i = $index
+  ) {
+    <div class="card">
       <span
         ><em>work experience {{ i + 1 }}</em></span
       >
@@ -62,10 +62,11 @@
           [experiences]="experiences(i)"
         />
       </div>
-    }
-  </div>
+    </div>
+  }
 
   <button type="button" (click)="addWorkExperience()">
+    <span class="material-symbols-outlined"> add_circle </span>
     Add Work Experience
   </button>
 </div>

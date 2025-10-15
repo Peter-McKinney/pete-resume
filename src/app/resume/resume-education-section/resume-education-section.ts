@@ -18,8 +18,8 @@ export class ResumeEducationSection {
       return {
         title: education.institution,
         subTitle: education.dateRange,
-        itemsHeader: education.itemsHeader,
-        items: education.items,
+        itemsHeader: education.title,
+        items: education.notes,
       };
     });
   });

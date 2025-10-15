@@ -22,10 +22,6 @@ export class CreateWorkExperience {
   workExperiences = input.required<FormArray>();
   formBuilder = inject(FormBuilder);
 
-  constructor() {
-    effect(() => {});
-  }
-
   experiences(i: number): FormArray {
     return this.workExperiences().at(i).get('experiences') as FormArray;
   }

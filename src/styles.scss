@@ -137,9 +137,39 @@ button {
   @extend p;
 
   background: mocha.$surface1;
-  color: mocha.$flamingo;
+  color: mocha.$green;
 
   box-shadow: mocha.$crust 3px 3px 3px 3px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1em;
+
+  > span {
+    margin-right: 5px;
+  }
+}
+
+.sticky-footer {
+  display: flex;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+}
+
+button[type="submit"] {
+  background: mocha.$surface0;
+  color: mocha.$green;
+  margin-bottom: 20px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  font-size: 1.2em;
 }
 
 .actions-container {
@@ -150,4 +180,10 @@ button {
 
 .error-message {
   color: mocha.$red;
+}
+
+.form-resume-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
