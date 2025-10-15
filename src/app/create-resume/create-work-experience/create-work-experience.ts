@@ -9,7 +9,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { CreateExperience } from '../create-experience/create-experience';
+import { CreateNotes } from '../create-experience/create-notes';
 import { FormArrayCard } from '../../common/form-array-card/form-array-card';
 import { FormArraySection } from '../../common/form-array-section/form-array-section';
 import { FormResumeControl } from '../../common/form-control/form-control';
@@ -21,7 +21,7 @@ import { FormResumeControl } from '../../common/form-control/form-control';
     FormArrayCard,
     FormArraySection,
     FormResumeControl,
-    CreateExperience,
+    CreateNotes,
   ],
   templateUrl: './create-work-experience.html',
   styleUrl: './create-work-experience.scss',
@@ -30,8 +30,8 @@ export class CreateWorkExperience {
   workExperiences = input.required<FormArray>();
   formBuilder = inject(FormBuilder);
 
-  experiences(i: number): FormArray {
-    return this.workExperiences().at(i).get('experiences') as FormArray;
+  notes(i: number): FormArray {
+    return this.workExperiences().at(i).get('notes') as FormArray;
   }
 
   titleControl(i: number): FormControl {

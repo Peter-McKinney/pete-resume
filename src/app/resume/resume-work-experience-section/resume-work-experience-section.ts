@@ -19,7 +19,7 @@ export class ResumeWorkExperienceSection {
         title: workExperience.title,
         subTitle: workExperience.dateRange,
         itemsHeader: workExperience.companyName,
-        items: workExperience.experiences,
+        items: workExperience.notes,
       };
     });
   });

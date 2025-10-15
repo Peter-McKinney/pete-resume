@@ -1,20 +1,19 @@
 <app-form-array-section (addClicked)="addEducation()">
   @for (education of educations().controls; track $index; let i = $index) {
     <app-form-array-card (deleteClicked)="deleteEducation(i)">
-        <ng-content cardTitle>Education: {{ i + 1 }}</ng-content>
-        <ng-content cardBody>
-
-        <app-form-control name="Institution" [control]="institutionControl(i)" />
+      <ng-content cardTitle>Education: {{ i + 1 }}</ng-content>
+      <ng-content cardBody>
+        <app-form-control
+          name="Institution"
+          [control]="institutionControl(i)"
+        />
 
         <app-form-control name="Date Range" [control]="dateRangeControl(i)" />
 
         <app-form-control name="Location" [control]="locationControl(i)" />
 
-        <app-create-education-notes
-          [notes]="notesArray(i)"
-        />
+        <app-create-notes [notes]="notesArray(i)" />
       </ng-content>
     </app-form-array-card>
   }
-
 </app-form-array-section>

@@ -1,7 +1,11 @@
 <div class="form-array-control">
   <label>{{ name() }}:</label>
-  @if(rows()) {
-    <textarea [formControl]="control()" [placeholder]="name()" [rows]="rows()"></textarea>
+  @if (rows()) {
+    <textarea
+      [formControl]="control()"
+      [placeholder]="name()"
+      [rows]="rows()"
+    ></textarea>
   } @else {
     <input [formControl]="control()" [placeholder]="name()" />
   }

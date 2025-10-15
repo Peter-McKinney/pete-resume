@@ -1,12 +1,10 @@
 <app-form-array-section>
   @for (note of notes().controls; track $index; let i = $index) {
     <app-form-array-sub-section
+      (deleteClicked)="removeNote(i)"
       (addClicked)="addNote()"
-      (deleteClicked)="removeNote(i)">
-
-      <app-form-control name="Education Note" [control]="note" [rows]="5">
-      </app-form-control>
+    >
+      <app-form-control name="Notes" [control]="note" [rows]="5" />
     </app-form-array-sub-section>
   }
-
 </app-form-array-section>

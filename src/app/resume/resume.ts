@@ -1,13 +1,11 @@
-import { Component, effect, inject, Signal, signal } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { ResumeObjective } from './resume-objective/resume-objective';
 import { ResumeWorkExperienceSection } from './resume-work-experience-section/resume-work-experience-section';
 import { ResumeEducationSection } from './resume-education-section/resume-education-section';
-import { Objective } from './resume-objective/objective.model';
 import { ResumeStore } from '../services/resume.store';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
-import { WorkExperience } from './resume-work-experience-section/work-experience.model';
 
 @Component({
   selector: 'app-resume',
@@ -21,43 +19,26 @@ import { WorkExperience } from './resume-work-experience-section/work-experience
   styleUrl: './resume.scss',
 })
 export class Resume {
-  readonly objective: Signal<Objective | undefined>;
-  readonly workExperiences: Signal<WorkExperience[] | undefined>;
-
-  resumeStore = inject(ResumeStore);
-
   route = inject(ActivatedRoute);
   routeResumeId = this.route.snapshot.params['resumeId'];
+  resumeStore = inject(ResumeStore);
+
+  readonly objective = toSignal(
+    this.resumeStore.getObjective(this.routeResumeId),
+  );
+  readonly workExperiences = toSignal(
+    this.resumeStore.getWorkExperience(this.routeResumeId),
+  );
+  readonly educations = toSignal(
+    this.resumeStore.getEducation(this.routeResumeId),
+  );
 
   constructor() {
-    this.objective = toSignal(
-      this.resumeStore.getObjective(this.routeResumeId),
-    );
-
-    this.workExperiences = toSignal(
-      this.resumeStore.getWorkExperience(this.routeResumeId),
-    );
+    console.log(this.routeResumeId, 'routeResumeId');
+    effect(() => {
+      console.log(this.workExperiences(), 'WEs');
+      console.log(this.educations(), 'Es');
+      console.log(this.objective(), 'obj');
+    });
   }
-
-  educations = [
-    {
-      institution: 'State University',
-      dateRange: '2011 - 2015',
-      title: 'Bachelor of Science in Computer Science',
-      notes: [
-        'Graduated with Honors',
-        'Relevant Coursework: Data Structures, Algorithms, Web Development, Database Systems',
-      ],
-    },
-    {
-      institution: 'Community College',
-      dateRange: '2009 - 2011',
-      title: 'Bachelor of Science in Computer Science',
-      notes: [
-        'Associate Degree in Information Technology',
-        'Dean’s List for 4 semesters',
-        'Relevant Coursework: Programming Fundamentals, Network Basics, System Administration',
-      ],
-    },
-  ];
 }

@@ -9,6 +9,9 @@ import {
 } from '@angular/forms';
 import { CreateWorkExperience } from './create-work-experience/create-work-experience';
 import { CreateEducation } from './create-education/create-education';
+import { CreateResumeService } from './create-resume.service';
+import { ActivatedRoute } from '@angular/router';
+import { ResumeInstance } from '../resume/resume.model';
 
 @Component({
   selector: 'app-create-resume',
@@ -18,6 +21,10 @@ import { CreateEducation } from './create-education/create-education';
 })
 export class CreateResume {
   formBuilder = inject(FormBuilder);
+
+  createResumeService = inject(CreateResumeService);
+
+  resumeId = inject(ActivatedRoute).snapshot?.data['resumeId'];
 
   resumeForm = new FormGroup({
     objective: new FormControl('', [
@@ -29,7 +36,7 @@ export class CreateResume {
         title: new FormControl('', [Validators.required]),
         dateRange: new FormControl('', [Validators.required]),
         companyName: new FormControl('', [Validators.required]),
-        experiences: this.formBuilder.array([
+        notes: this.formBuilder.array([
           new FormControl('', [Validators.required]),
         ]),
       }),
@@ -57,6 +64,12 @@ export class CreateResume {
   createResume() {
     this.resumeForm.markAllAsDirty();
 
-    console.log(this.resumeForm.value);
+    if (this.resumeForm.valid) {
+      console.log(this.resumeForm.value);
+      this.createResumeService.createResume({
+        ...this.resumeForm.value,
+        resumeId: this.resumeId,
+      } as ResumeInstance);
+    }
   }
 }
