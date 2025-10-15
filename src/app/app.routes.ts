@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Resume } from './resume/resume';
-import { CreateResume } from './create-resume/create-resume';
-import { createResumeResolver } from './create-resume/resolvers/create-resume-resolver';
+import { createResumeGuard } from './create-resume/guards/create-resume.guard';
+import { EditResume } from './create-resume/edit-resume';
 
 export const routes: Routes = [
   {
@@ -10,7 +10,11 @@ export const routes: Routes = [
   },
   {
     path: 'resume/create',
-    component: CreateResume,
-    resolve: { resumeId: createResumeResolver },
+    component: EditResume,
+    canActivate: [createResumeGuard],
+  },
+  {
+    path: 'resume/edit/:resumeId',
+    component: EditResume,
   },
 ];

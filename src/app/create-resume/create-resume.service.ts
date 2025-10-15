@@ -17,34 +17,24 @@ export class CreateResumeService {
     return docRef.id;
   }
 
-  async createResume(resume: ResumeInstance): Promise<string> {
-    console.log(resume, 'resume to be created');
-    const resumeObjective = await addDoc(
-      collection(this.firestore, 'objectives'),
-      {
-        resumeId: resume.resumeId,
-        text: resume.objective,
-        createdAt: serverTimestamp(),
-      },
-    );
+  async createOrUpdate(resume: ResumeInstance): Promise<string> {
+    await addDoc(collection(this.firestore, 'objectives'), {
+      resumeId: resume.resumeId,
+      text: resume.objective,
+      createdAt: serverTimestamp(),
+    });
 
-    const resumeWorkExperiences = await addDoc(
-      collection(this.firestore, 'work-experiences'),
-      {
-        resumeId: resume.resumeId,
-        experiences: resume.workExperiences,
-        createdAt: serverTimestamp(),
-      },
-    );
+    await addDoc(collection(this.firestore, 'work-experiences'), {
+      resumeId: resume.resumeId,
+      experiences: resume.workExperiences,
+      createdAt: serverTimestamp(),
+    });
 
-    const resumeEducations = await addDoc(
-      collection(this.firestore, 'educations'),
-      {
-        resumeId: resume.resumeId,
-        educations: resume.educations,
-        createdAt: serverTimestamp(),
-      },
-    );
+    await addDoc(collection(this.firestore, 'educations'), {
+      resumeId: resume.resumeId,
+      educations: resume.educations,
+      createdAt: serverTimestamp(),
+    });
 
     return '';
   }

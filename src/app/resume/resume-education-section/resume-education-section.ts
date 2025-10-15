@@ -18,7 +18,7 @@ export class ResumeEducationSection {
       return {
         title: education.institution,
         subTitle: education.dateRange,
-        itemsHeader: education.title,
+        itemsHeader: education.location,
         items: education.notes,
       };
     });

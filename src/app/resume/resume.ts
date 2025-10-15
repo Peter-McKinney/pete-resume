@@ -32,13 +32,4 @@ export class Resume {
   readonly educations = toSignal(
     this.resumeStore.getEducation(this.routeResumeId),
   );
-
-  constructor() {
-    console.log(this.routeResumeId, 'routeResumeId');
-    effect(() => {
-      console.log(this.workExperiences(), 'WEs');
-      console.log(this.educations(), 'Es');
-      console.log(this.objective(), 'obj');
-    });
-  }
 }

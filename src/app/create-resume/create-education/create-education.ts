@@ -11,7 +11,7 @@ import {
 import { FormArraySection } from '../../common/form-array-section/form-array-section';
 import { FormArrayCard } from '../../common/form-array-card/form-array-card';
 import { FormResumeControl } from '../../common/form-control/form-control';
-import { CreateNotes } from '../create-experience/create-notes';
+import { CreateNotes } from '../create-notes/create-notes';
 
 @Component({
   selector: 'app-create-education',

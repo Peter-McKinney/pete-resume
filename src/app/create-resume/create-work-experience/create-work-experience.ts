@@ -1,15 +1,13 @@
 import { Component, inject, input } from '@angular/core';
 import {
-  ControlContainer,
   FormArray,
-  FormArrayName,
   FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { CreateNotes } from '../create-experience/create-notes';
+import { CreateNotes } from '../create-notes/create-notes';
 import { FormArrayCard } from '../../common/form-array-card/form-array-card';
 import { FormArraySection } from '../../common/form-array-section/form-array-section';
 import { FormResumeControl } from '../../common/form-control/form-control';
@@ -35,6 +33,7 @@ export class CreateWorkExperience {
   }
 
   titleControl(i: number): FormControl {
+    console.log(this.workExperiences().at(i).value, 'picked this one');
     return this.workExperiences().at(i).get('title') as FormControl;
   }
 
@@ -52,7 +51,7 @@ export class CreateWorkExperience {
         title: new FormControl('', [Validators.required]),
         dateRange: new FormControl('', [Validators.required]),
         companyName: new FormControl('', [Validators.required]),
-        experiences: this.formBuilder.array([
+        notes: this.formBuilder.array([
           new FormControl('', [Validators.required]),
         ]),
       }),
