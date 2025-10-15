@@ -33,7 +33,6 @@ export class CreateWorkExperience {
   }
 
   titleControl(i: number): FormControl {
-    console.log(this.workExperiences().at(i).value, 'picked this one');
     return this.workExperiences().at(i).get('title') as FormControl;
   }
 

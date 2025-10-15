@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ResumeObjective } from './resume-objective/resume-objective';
 import { ResumeWorkExperienceSection } from './resume-work-experience-section/resume-work-experience-section';
 import { ResumeEducationSection } from './resume-education-section/resume-education-section';
@@ -32,8 +32,4 @@ export class Resume {
   readonly educations = toSignal(
     this.resumeStore.getEducation(this.routeResumeId),
   );
-
-  debug = effect(() => {
-    console.log('workExp', this.workExperiences());
-  });
 }

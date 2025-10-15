@@ -80,13 +80,9 @@ export class EditResume {
         this.existingResumeForm()?.workExperiences &&
         this.existingResumeForm()?.objective
       ) {
-        console.log(this.existingResumeForm());
-
         this.setObjective();
         this.setWorkExperience();
         this.setEducation();
-
-        console.log(this.resumeForm, 'resume form');
       }
     });
   }
