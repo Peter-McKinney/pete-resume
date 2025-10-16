@@ -1,11 +1,11 @@
-<div class="card">
+<div class="card animate__animated animate__fadeIn">
   <div class="list-card-header">
     <div>Resume ID</div>
     <div>Resume Name</div>
     <div>Created At</div>
   </div>
   @for (resume of resumes(); track resume.id) {
-    <div class="alternate-card">
+    <div class="alternate-card animate__animated animate__fadeIn">
       <div class="resume-row">
         <span class="resume-field">
           {{ resume.id }}

@@ -2,7 +2,11 @@
   <h2>Education</h2>
   <div class="card-list">
     @for (card of cards(); track $index) {
-      <app-resume-card [card]="card" [isAlternate]="true" />
+      <app-resume-card
+        class="animate__animated animate__fadeIn"
+        [card]="card"
+        [isAlternate]="true"
+      />
     }
   </div>
 </div>

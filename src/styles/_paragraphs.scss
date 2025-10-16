@@ -1,4 +1,4 @@
-@use "@catppuccin/palette/scss/mocha" as mocha;
+@use "mocha" as mocha;
 
 p {
   border: 1px solid mocha.$overlay2;

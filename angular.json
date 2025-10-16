@@ -27,9 +27,15 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "node_modules/animate.css/animate.min.css",
+              "src/styles.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["node_modules", "src/styles"]
+              "includePaths": [
+                "node_modules/@catppuccin/palette/scss",
+                "src/styles"
+              ]
             }
           },
           "configurations": {

@@ -1,4 +1,4 @@
-<div class="alternate-card">
+<div class="alternate-card animate__animated animate__fadeIn">
   <form class="resume-form-container" [formGroup]="resumeForm">
     <app-form-control name="Resume Name" [control]="resumeName" />
     <app-form-control name="Objective" [control]="objective" [rows]="5" />
@@ -7,7 +7,10 @@
       <h2>Work Experience</h2>
 
       @if (workExperiences) {
-        <app-create-work-experience [workExperiences]="workExperiences" />
+        <app-create-work-experience
+          class="animate__animated animate__fadeIn"
+          [workExperiences]="workExperiences"
+        />
       }
     </div>
 
@@ -15,6 +18,7 @@
       <h2>Education</h2>
       @if (educations) {
         <app-create-education
+          class="animate__animated animate__fadeIn"
           formArrayName="educations"
           [educations]="educations"
         />
