@@ -1,7 +1,7 @@
 <div [class.alternate-card]="isAlternate()" [class.card]="!isAlternate()">
   <div class="card-header">
     <h3>{{ card().title }}</h3>
-    <span>{{ card().subTitle }}</span>
+    <span class="card-subtitle">{{ card().subTitle }}</span>
   </div>
   @if (card().itemsHeader) {
     <h4>{{ card().itemsHeader }}</h4>
