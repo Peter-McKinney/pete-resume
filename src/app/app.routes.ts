@@ -6,6 +6,10 @@ import { ListResume } from './list-resume/list-resume';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'tgXFUSgAJWE0xWWzMxx6',
+  },
+  {
     path: ':resumeId',
     component: Resume,
   },
