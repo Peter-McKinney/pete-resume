@@ -1,14 +1,8 @@
-import {
-  Component,
-  computed,
-  input,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { ContactInfo } from './contact-info.model';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-resume-contact-info',
   imports: [NgOptimizedImage],
   templateUrl: './resume-contact-info.html',

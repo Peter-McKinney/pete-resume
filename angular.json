@@ -58,6 +58,11 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+            },
+            "localprod": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -70,6 +75,9 @@
             },
             "development": {
               "buildTarget": "pete-resume:build:development"
+            },
+            "localprod": {
+              "buildTarget": "pete-resume:build:localprod"
             }
           },
           "defaultConfiguration": "development"

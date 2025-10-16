@@ -1,9 +1,4 @@
-import {
-  Component,
-  inject,
-  input,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -18,7 +13,6 @@ import { FormArraySection } from '../../common/form-array-section/form-array-sec
 import { FormResumeControl } from '../../common/form-control/form-control';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-work-experience',
   imports: [
     ReactiveFormsModule,

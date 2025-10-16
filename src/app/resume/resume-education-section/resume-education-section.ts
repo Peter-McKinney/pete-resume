@@ -1,16 +1,10 @@
-import {
-  Component,
-  computed,
-  input,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { Education } from './education.model';
 import { Card } from '../../common/card/card.model';
 import { ResumeCard } from '../../common/card/card';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-resume-education-section',
   imports: [ResumeCard, CommonModule],
   templateUrl: './resume-education-section.html',

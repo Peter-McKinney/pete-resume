@@ -1,7 +1,6 @@
-import { Component, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-form-array-sub-section',
   imports: [],
   templateUrl: './form-array-sub-section.html',

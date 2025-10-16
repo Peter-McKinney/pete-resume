@@ -1,10 +1,4 @@
-import {
-  Component,
-  effect,
-  inject,
-  OnDestroy,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, effect, inject, OnDestroy } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -23,7 +17,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { FormResumeControl } from '../common/form-control/form-control';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-edit-resume',
   imports: [
     ReactiveFormsModule,
@@ -101,6 +94,8 @@ export class EditResume implements OnDestroy {
       this.setWorkExperience();
       this.setEducation();
       this.resumeName.setValue(this.existingResumeForm()?.resumeName);
+
+      this.resumeForm.markAsPristine();
     }
   });
 

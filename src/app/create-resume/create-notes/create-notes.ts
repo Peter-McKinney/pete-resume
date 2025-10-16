@@ -1,4 +1,4 @@
-import { Component, input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input } from '@angular/core';
 import {
   FormArray,
   FormControl,
@@ -10,7 +10,6 @@ import { FormResumeControl } from '../../common/form-control/form-control';
 import { FormArraySubSection } from '../../common/form-array-sub-section/form-array-sub-section';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-notes',
   imports: [
     ReactiveFormsModule,

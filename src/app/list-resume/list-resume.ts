@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ResumeStore } from '../services/resume.store';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
@@ -6,7 +6,6 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-list-resume',
   imports: [RouterLink, DatePipe],
   templateUrl: './list-resume.html',

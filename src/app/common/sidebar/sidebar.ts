@@ -1,9 +1,8 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Header } from '../../resume/resume-header/resume-header.model';
 import { ResumeHeader } from '../../resume/resume-header/resume-header';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-sidebar',
   imports: [ResumeHeader],
   templateUrl: './sidebar.html',

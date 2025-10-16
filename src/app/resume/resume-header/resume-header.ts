@@ -1,10 +1,9 @@
-import { Component, input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Header } from './resume-header.model';
 import { Avatar } from '../../common/avatar/avatar';
 import { ResumeContactInfo } from '../resume-contact-info/resume-contact-info';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-resume-header',
   imports: [Avatar, ResumeContactInfo],
   templateUrl: './resume-header.html',

@@ -8,6 +8,7 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'tgXFUSgAJWE0xWWzMxx6',
+    pathMatch: 'full',
   },
   {
     path: ':resumeId',
