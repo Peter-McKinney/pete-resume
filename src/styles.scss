@@ -8,6 +8,7 @@
 @use "form-controls";
 @use "paragraphs";
 @use "typography";
+@use "print";
 
 body,
 html {
@@ -18,18 +19,4 @@ html {
   font-family: "JetBrains Mono", monospace;
   background: mocha.$base;
   color: mocha.$text;
-}
-
-@media print {
-  body {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}
-
-.sticky-footer {
-  display: flex;
-  width: 100%;
-  position: sticky;
-  bottom: 0;
 }

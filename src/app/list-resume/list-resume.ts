@@ -17,7 +17,7 @@ export class ListResume {
   clipboard = inject(Clipboard);
 
   copyResumeUrl(resumeId: string) {
-    const url = `${document.location.origin}/resume/edit/${resumeId}`;
+    const url = `${document.location.origin}/${resumeId}`;
     this.clipboard.copy(url);
   }
 }

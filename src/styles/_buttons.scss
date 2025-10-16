@@ -37,3 +37,10 @@ button[type="submit"] {
 
   font-size: 1.2em;
 }
+
+.sticky-button-container {
+  display: flex;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+}
