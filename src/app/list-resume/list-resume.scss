@@ -1,5 +1,9 @@
 @use "mocha" as mocha;
 
+.backdrop {
+  height: 100vh;
+}
+
 .resume-field {
   text-overflow: ellipsis;
   white-space: nowrap;
