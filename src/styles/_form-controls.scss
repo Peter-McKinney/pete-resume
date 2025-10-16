@@ -1,0 +1,24 @@
+@use "@catppuccin/palette/scss/mocha" as mocha;
+@use "paragraphs";
+@use "cards";
+
+input,
+textarea {
+  @extend p;
+}
+
+label {
+  color: mocha.$yellow;
+}
+
+.form-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

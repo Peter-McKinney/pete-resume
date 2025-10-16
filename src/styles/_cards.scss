@@ -1,0 +1,35 @@
+@use "@catppuccin/palette/scss/mocha" as mocha;
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: mocha.$sapphire;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  background: mocha.$mantle;
+  border: 1px solid mocha.$surface2;
+  border-radius: 8px;
+  box-shadow: mocha.$crust 3px 3px 3px 3px;
+
+  padding: 16px;
+  @media (max-width: 768px) {
+    padding: 6px;
+  }
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alternate-card {
+  @extend .card;
+  background: mocha.$surface0;
+}

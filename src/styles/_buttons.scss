@@ -1,0 +1,34 @@
+@use "@catppuccin/palette/scss/mocha" as mocha;
+@use "paragraphs";
+
+button {
+  @extend p;
+
+  background: mocha.$surface1;
+  color: mocha.$green;
+
+  box-shadow: mocha.$crust 3px 3px 3px 3px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1em;
+
+  > span {
+    margin-right: 5px;
+  }
+}
+
+button[type="submit"] {
+  background: mocha.$surface0;
+  color: mocha.$green;
+  margin-bottom: 20px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  font-size: 1.2em;
+}

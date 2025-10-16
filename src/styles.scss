@@ -1,12 +1,13 @@
 @use "@catppuccin/palette/scss/mocha" as mocha;
 
-@font-face {
-  font-family: "JetBrains Mono", monospace;
-  src: url("assets/JetBrainsMono-Regular-subset.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+@use "anchors";
+@use "buttons";
+@use "cards";
+@use "containers";
+@use "errors";
+@use "form-controls";
+@use "paragraphs";
+@use "typography";
 
 body,
 html {
@@ -19,136 +20,10 @@ html {
   color: mocha.$text;
 }
 
-a {
-  color: mocha.$blue;
-}
-
-p {
-  border: 1px solid mocha.$overlay2;
-  border-radius: 8px;
-  background: mocha.$crust;
-  color: mocha.$mauve;
-
-  box-shadow: mocha.$crust 3px 3px 3px 3px;
-
-  margin: 0;
-  padding: 5px 20px;
-
-  @media (max-width: 768px) {
-    padding: 5px 10px;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  border-bottom: 4px solid mocha.$surface2;
-  color: mocha.$text;
-
-  box-shadow: mocha.$crust 0px 3px 0px 0px;
-}
-
-h1 {
-  color: mocha.$flamingo;
-}
-
-h2 {
-  margin-bottom: 10px;
-}
-
-h4 {
-  font-style: italic;
-  color: mocha.$yellow;
-  border: none;
-  box-shadow: none;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  background: mocha.$mantle;
-  border: 1px solid mocha.$surface2;
-  border-radius: 8px;
-  box-shadow: mocha.$crust 3px 3px 3px 3px;
-
-  padding: 16px;
-  @media (max-width: 768px) {
-    padding: 6px;
-  }
-}
-
-.card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.dates-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  color: mocha.$sapphire;
-}
-
-.alternate-card {
-  @extend .card;
-  background: mocha.$surface0;
-}
-
 @media print {
   body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-  }
-}
-
-input,
-textarea {
-  @extend p;
-}
-
-label {
-  color: mocha.$yellow;
-}
-
-.form-array-control {
-  @extend .alternate-card;
-}
-
-.form-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.form-control {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-button {
-  @extend p;
-
-  background: mocha.$surface1;
-  color: mocha.$green;
-
-  box-shadow: mocha.$crust 3px 3px 3px 3px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 1em;
-
-  > span {
-    margin-right: 5px;
   }
 }
 
@@ -157,33 +32,4 @@ button {
   width: 100%;
   position: sticky;
   bottom: 0;
-}
-
-button[type="submit"] {
-  background: mocha.$surface0;
-  color: mocha.$green;
-  margin-bottom: 20px;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-
-  font-size: 1.2em;
-}
-
-.actions-container {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-}
-
-.error-message {
-  color: mocha.$red;
-}
-
-.form-array-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }

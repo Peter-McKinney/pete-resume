@@ -1,0 +1,5 @@
+@use "@catppuccin/palette/scss/mocha" as mocha;
+
+.error-message {
+  color: mocha.$red;
+}

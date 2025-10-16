@@ -1,0 +1,5 @@
+@use "@catppuccin/palette/scss/mocha" as mocha;
+
+a {
+  color: mocha.$blue;
+}
