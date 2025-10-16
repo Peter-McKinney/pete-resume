@@ -14,20 +14,26 @@ import { Objective } from '../resume/resume-objective/objective.model';
 import { ResumeInstance } from '../resume/resume.model';
 import { CollectionReference } from '@angular/fire/firestore/lite';
 
+export interface ResumeSummary {
+  id: string;
+  resumeName: string;
+  createdAt: Date;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class ResumeStore {
   private firestore = inject(Firestore);
 
-  getAllResumes() {
+  getAllResumes(): Observable<ResumeSummary[]> {
     const resumesRef = collection(this.firestore, 'resumes');
 
     const q = query(resumesRef, orderBy('createdAt', 'desc'));
 
     const resumes = collectionData(q, { idField: 'id' });
 
-    return resumes;
+    return resumes as Observable<ResumeSummary[]>;
   }
 
   getResumeForm(resumeId: string): Observable<ResumeInstance> {

@@ -6,10 +6,10 @@
   @for (resume of resumes(); track resume.id) {
     <div class="alternate-card">
       <div class="resume-row">
-        <span>
+        <span class="resume-field">
           {{ resume.id }}
         </span>
-        <span> resume_name_here </span>
+        <span class="resume-name"> {{resume.resumeName}} </span>
 
         <div class="icon-container">
           <a [routerLink]="['/resume', 'edit', resume.id]">

@@ -1,5 +1,16 @@
 @use "@catppuccin/palette/scss/mocha" as mocha;
 
+.resume-field {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.resume-name {
+  @extend .resume-field;
+  color: mocha.$yellow;
+}
+
 .resume-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
