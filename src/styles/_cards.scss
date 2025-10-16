@@ -5,6 +5,12 @@
   justify-content: space-between;
   align-items: baseline;
   color: mocha.$sapphire;
+
+  gap: 50px;
+
+  > span {
+    text-align: start;
+  }
 }
 
 .card {

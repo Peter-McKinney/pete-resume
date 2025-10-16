@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { collection, getDoc, limit, query, where } from 'firebase/firestore';
+import { collection, limit, query, where } from 'firebase/firestore';
 import { Observable, combineLatest, map } from 'rxjs';
 import { WorkExperience } from '../resume/resume-work-experience-section/work-experience.model';
 import {
@@ -8,16 +8,21 @@ import {
   docData,
   Firestore,
   orderBy,
+  Timestamp,
 } from '@angular/fire/firestore';
 import { Education } from '../resume/resume-education-section/education.model';
 import { Objective } from '../resume/resume-objective/objective.model';
 import { ResumeInstance } from '../resume/resume.model';
 import { CollectionReference } from '@angular/fire/firestore/lite';
 
+export interface ResumeSummaryDoc {
+  createdAt: Timestamp;
+}
+
 export interface ResumeSummary {
   id: string;
   resumeName: string;
-  createdAt: Date;
+  createdAt: Date | null;
 }
 
 @Injectable({
@@ -31,9 +36,15 @@ export class ResumeStore {
 
     const q = query(resumesRef, orderBy('createdAt', 'desc'));
 
-    const resumes = collectionData(q, { idField: 'id' });
-
-    return resumes as Observable<ResumeSummary[]>;
+    return collectionData(q, { idField: 'id' }).pipe(
+      map(
+        (docs) =>
+          docs.map((d) => ({
+            ...d,
+            createdAt: d['createdAt']?.toDate() ?? null,
+          })) as ResumeSummary[],
+      ),
+    );
   }
 
   getResumeForm(resumeId: string): Observable<ResumeInstance> {

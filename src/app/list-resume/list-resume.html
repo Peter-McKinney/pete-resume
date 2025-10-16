@@ -2,6 +2,7 @@
   <div class="list-card-header">
     <div>Resume ID</div>
     <div>Resume Name</div>
+    <div>Created At</div>
   </div>
   @for (resume of resumes(); track resume.id) {
     <div class="alternate-card">
@@ -11,6 +12,9 @@
         </span>
         <span class="resume-name"> {{resume.resumeName}} </span>
 
+        <span class="resume-field">
+          {{ resume.createdAt | date: 'medium'}}
+          </span>
         <div class="icon-container">
           <button class="material-symbols-outlined" (click)="copyResumeUrl(resume.id)">
             content_copy

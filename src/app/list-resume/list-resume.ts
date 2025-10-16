@@ -3,10 +3,11 @@ import { ResumeStore } from '../services/resume.store';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-list-resume',
-  imports: [RouterLink],
+  imports: [RouterLink, DatePipe],
   templateUrl: './list-resume.html',
   styleUrl: './list-resume.scss',
 })

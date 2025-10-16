@@ -6,5 +6,8 @@
   @if (card().itemsHeader) {
     <h4>{{ card().itemsHeader }}</h4>
   }
-  <p *ngFor="let item of card().items">{{ item }}</p>
+
+  @for(item of card().items; track item) {
+    <p >{{ item }}</p>
+  }
 </div>
