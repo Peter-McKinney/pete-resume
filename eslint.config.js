@@ -53,7 +53,6 @@ module.exports = [
       rules: {
         "@angular-eslint/template/prefer-control-flow": ["error"],
         "@angular-eslint/template/use-track-by-function": ["error"],
-        "@angular-eslint/template/prefer-ngsrc": ["error"],
         "@angular-eslint/template/prefer-template-literal": ["error"],
         // '@angular-eslint/conditional-complexity': ['warn', { maxComplexity: 5 }],
         // '@angular-eslint/cyclomatic-complexity': ['warn', { maxComplexity: 10 }],
