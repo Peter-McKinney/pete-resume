@@ -7,7 +7,7 @@
     <h4>{{ card().itemsHeader }}</h4>
   }
 
-  @for (item of card().items; track item) {
+  @for (item of card().items; track $index) {
     <p>{{ item }}</p>
   }
 </div>

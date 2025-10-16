@@ -2,4 +2,9 @@
 
 a {
   color: mocha.$blue;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  text-decoration: none;
+  gap: 10px;
 }

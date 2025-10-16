@@ -3,9 +3,7 @@ import {
   FormArray,
   FormBuilder,
   FormControl,
-  FormGroup,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 import { CreateWorkExperience } from './create-work-experience/create-work-experience';
 import { CreateEducation } from './create-education/create-education';
@@ -15,6 +13,7 @@ import { ResumeInstance } from '../resume/resume.model';
 import { ResumeStore } from '../services/resume.store';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormResumeControl } from '../common/form-control/form-control';
+import { FormService } from './services/form.service';
 
 @Component({
   selector: 'app-edit-resume',
@@ -33,6 +32,8 @@ export class EditResume implements OnDestroy {
   }
 
   formBuilder = inject(FormBuilder);
+  formService = inject(FormService);
+
   router = inject(Router);
 
   createResumeService = inject(CreateResumeService);
@@ -41,106 +42,22 @@ export class EditResume implements OnDestroy {
   activatedRoute = inject(ActivatedRoute);
   resumeId = this.activatedRoute.snapshot?.params['resumeId'];
 
-  readonly existingResumeForm = toSignal(
+  readonly resumeFromFirestore = toSignal(
     this.resumeStore.getResumeForm(this.resumeId),
   );
 
-  resumeForm = this.buildResumeForm();
-
-  buildWorkExperiencesFormGroup(): FormArray {
-    return this.formBuilder.array([
-      new FormGroup({
-        title: new FormControl('', [Validators.required]),
-        dateRange: new FormControl('', [Validators.required]),
-        companyName: new FormControl('', [Validators.required]),
-        notes: this.formBuilder.array([
-          new FormControl('', [Validators.required]),
-        ]),
-      }),
-    ]);
-  }
-
-  buildEducationsFormGroup(): FormArray {
-    return this.formBuilder.array([
-      new FormGroup({
-        institution: new FormControl('', [Validators.required]),
-        dateRange: new FormControl('', [Validators.required]),
-        location: new FormControl('', [Validators.required]),
-        notes: this.formBuilder.array([
-          new FormControl('', [Validators.required]),
-        ]),
-      }),
-    ]);
-  }
-
-  buildResumeForm(): FormGroup {
-    return new FormGroup({
-      resumeId: new FormControl(this.resumeId),
-      resumeName: new FormControl('', [Validators.required]),
-      objective: new FormControl('', [Validators.required]),
-      workExperiences: this.buildWorkExperiencesFormGroup(),
-      educations: this.buildEducationsFormGroup(),
-    });
-  }
+  resumeForm = this.formService.buildResumeForm(this.resumeId);
 
   hydrateFormEffect = effect(() => {
     if (
-      this.existingResumeForm() &&
-      this.existingResumeForm()?.educations &&
-      this.existingResumeForm()?.workExperiences &&
-      this.existingResumeForm()?.objective
+      this.resumeFromFirestore() &&
+      this.resumeFromFirestore()?.educations &&
+      this.resumeFromFirestore()?.workExperiences &&
+      this.resumeFromFirestore()?.objective
     ) {
-      this.setObjective();
-      this.setWorkExperience();
-      this.setEducation();
-      this.resumeName.setValue(this.existingResumeForm()?.resumeName);
-
-      this.resumeForm.markAsPristine();
+      this.formService.setForm(this.resumeForm, this.resumeFromFirestore()!);
     }
   });
-
-  setObjective(): void {
-    this.resumeForm.setControl(
-      'objective',
-      new FormControl(this.existingResumeForm()?.objective, [
-        Validators.required,
-      ]),
-    );
-  }
-
-  setWorkExperience(): void {
-    this.workExperiences.clear();
-
-    this.existingResumeForm()?.workExperiences.forEach((we) => {
-      this.workExperiences.push(
-        new FormGroup({
-          title: new FormControl(we.title, [Validators.required]),
-          dateRange: new FormControl(we.dateRange, [Validators.required]),
-          companyName: new FormControl(we.companyName, [Validators.required]),
-          notes: this.formBuilder.array(
-            we.notes.map((n) => new FormControl(n, [Validators.required])),
-          ),
-        }),
-      );
-    });
-  }
-
-  setEducation(): void {
-    this.educations.clear();
-
-    this.existingResumeForm()?.educations.forEach((we) => {
-      this.educations.push(
-        new FormGroup({
-          institution: new FormControl(we.institution, [Validators.required]),
-          dateRange: new FormControl(we.dateRange, [Validators.required]),
-          location: new FormControl(we.location, [Validators.required]),
-          notes: this.formBuilder.array(
-            we.notes.map((n) => new FormControl(n, [Validators.required])),
-          ),
-        }),
-      );
-    });
-  }
 
   get workExperiences(): FormArray {
     return this.resumeForm.get('workExperiences') as FormArray;

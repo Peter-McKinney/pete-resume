@@ -1,10 +1,11 @@
 import { Component, computed, input } from '@angular/core';
 import { ContactInfo } from './contact-info.model';
 import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-resume-contact-info',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './resume-contact-info.html',
   styleUrl: './resume-contact-info.scss',
 })

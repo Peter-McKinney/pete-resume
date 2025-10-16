@@ -10,6 +10,7 @@
     "test": "ng test",
     "format": "prettier --write \"**/*.{ts,html,css,json}\"",
     "lint": "eslint .",
+    "emulators": "firebase emulators:start",
     "firestore:deploy:rules": "firebase deploy --only firestore:rules",
     "prepare": "husky"
   },

@@ -1,15 +1,24 @@
 <div class="contact-info-container">
-  <div class="contact-row">
+  <a [routerLink]="['/']">
+    <span class="material-symbols-outlined">home </span>
+    Home</a
+  >
+  <a target="_blank" rel="noopener noreferrer" [href]="contactInfo().github">
     <img
       alt="GitHub Icon Octacat"
       width="24"
       height="24"
       ngSrc="github-mark-white.svg"
     />
-    <span>
-      <a target="_blank" rel="noopener noreferrer" [href]="contactInfo().github"
-        >GitHub</a
-      >
-    </span>
-  </div>
+    GitHub</a
+  >
+
+  <a [routerLink]="['/resume', 'create']">
+    <span class="material-symbols-outlined">note_add </span>
+    Create Resume
+  </a>
+  <a [routerLink]="['/resume', 'list']">
+    <span class="material-symbols-outlined">list_alt </span>
+    Resume Versions
+  </a>
 </div>
