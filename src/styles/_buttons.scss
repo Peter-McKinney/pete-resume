@@ -18,6 +18,11 @@ button {
   > span {
     margin-right: 5px;
   }
+
+  &:active,
+  &:focus:active {
+    transform: translateY(3px);
+  }
 }
 
 button[type="submit"] {

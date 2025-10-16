@@ -12,16 +12,15 @@
         <span class="resume-name"> {{resume.resumeName}} </span>
 
         <div class="icon-container">
+          <button class="material-symbols-outlined" (click)="copyResumeUrl(resume.id)">
+            content_copy
+          </button>
           <a [routerLink]="['/resume', 'edit', resume.id]">
-            <div class="icon-container">
               <span class="material-symbols-outlined"> edit </span>
-            </div>
           </a>
 
           <a [routerLink]="['/', resume.id]">
-            <div class="icon-container">
               <span class="material-symbols-outlined"> arrow_outward </span>
-            </div>
           </a>
         </div>
       </div>
