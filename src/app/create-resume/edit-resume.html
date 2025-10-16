@@ -1,10 +1,7 @@
 <div class="alternate-card">
-  <form
-    class="resume-form-container"
-    [formGroup]="resumeForm"
-  >
+  <form class="resume-form-container" [formGroup]="resumeForm">
     <app-form-control name="Resume Name" [control]="resumeName" />
-    <app-form-control name="Objective" [control]="objective" [rows]="5"/>
+    <app-form-control name="Objective" [control]="objective" [rows]="5" />
 
     <div class="form-control">
       <h2>Work Experience</h2>
@@ -27,7 +24,8 @@
     <div class="sticky-footer">
       <button type="submit" (click)="saveResume()">
         <span class="material-symbols-outlined"> save </span>
-        Save Resume</button>
+        Save Resume
+      </button>
       <button type="submit" (click)="saveAndExit()">
         <span class="material-symbols-outlined"> arrow_outward </span>
         Save & Exit

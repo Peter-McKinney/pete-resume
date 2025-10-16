@@ -2,11 +2,8 @@
   <h2>Work Experience</h2>
 
   <div class="card-list">
-    @for(card of cards(); track card.title) {
-      <app-resume-card
-        [card]="card"
-        [isAlternate]="true"
-      />
-  }
+    @for (card of cards(); track card.title) {
+      <app-resume-card [card]="card" [isAlternate]="true" />
+    }
   </div>
 </div>
