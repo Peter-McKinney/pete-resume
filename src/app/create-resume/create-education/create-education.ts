@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import {
   ControlContainer,
   FormArray,
@@ -14,6 +14,7 @@ import { FormResumeControl } from '../../common/form-control/form-control';
 import { CreateNotes } from '../create-notes/create-notes';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-education',
   imports: [
     ReactiveFormsModule,
@@ -27,7 +28,7 @@ import { CreateNotes } from '../create-notes/create-notes';
   viewProviders: [{ provide: ControlContainer, useExisting: FormArrayName }],
 })
 export class CreateEducation {
-  educations = input.required<FormArray>();
+  readonly educations = input.required<FormArray>();
 
   institutionControl(i: number): FormControl {
     return this.educations().at(i).get('institution') as FormControl;

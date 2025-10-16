@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormArray,
   FormControl,
@@ -10,6 +10,7 @@ import { FormResumeControl } from '../../common/form-control/form-control';
 import { FormArraySubSection } from '../../common/form-array-sub-section/form-array-sub-section';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-create-notes',
   imports: [
     ReactiveFormsModule,
@@ -21,7 +22,7 @@ import { FormArraySubSection } from '../../common/form-array-sub-section/form-ar
   styleUrl: './create-notes.scss',
 })
 export class CreateNotes {
-  notes = input.required<FormArray<FormControl>>();
+  readonly notes = input.required<FormArray<FormControl>>();
 
   addNote() {
     this.notes().push(new FormControl('', [Validators.required]));

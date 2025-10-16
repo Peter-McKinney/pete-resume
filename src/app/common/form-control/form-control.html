@@ -1,13 +1,14 @@
 <div class="alternate-card">
-  <label>{{ name() }}:</label>
+  <label [for]="id">{{ name() }}:</label>
   @if (rows()) {
     <textarea
+      [id]="id"
       [formControl]="control()"
       [placeholder]="name()"
       [rows]="rows()"
     ></textarea>
   } @else {
-    <input [formControl]="control()" [placeholder]="name()" />
+    <input [id]="id" [formControl]="control()" [placeholder]="name()" />
   }
 </div>
 

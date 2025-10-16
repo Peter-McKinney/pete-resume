@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ResumeObjective } from './resume-objective/resume-objective';
 import { ResumeWorkExperienceSection } from './resume-work-experience-section/resume-work-experience-section';
 import { ResumeEducationSection } from './resume-education-section/resume-education-section';
@@ -8,6 +8,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-resume',
   imports: [
     ResumeObjective,

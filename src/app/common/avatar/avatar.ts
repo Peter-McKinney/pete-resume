@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-avatar',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './avatar.html',
   styleUrl: './avatar.scss',
 })
