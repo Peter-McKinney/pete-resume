@@ -3,6 +3,7 @@ import { WorkExperience } from './resume-work-experience-section/work-experience
 
 export interface ResumeInstance {
   resumeId: string;
+  resumeName: string;
   objective: string;
   workExperiences: WorkExperience[];
   educations: Education[];

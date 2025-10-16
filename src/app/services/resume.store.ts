@@ -1,10 +1,11 @@
 import { inject, Injectable } from '@angular/core';
-import { collection, limit, query, where } from 'firebase/firestore';
+import { collection, getDoc, limit, query, where } from 'firebase/firestore';
 import { Observable, combineLatest, map } from 'rxjs';
 import { WorkExperience } from '../resume/resume-work-experience-section/work-experience.model';
 import {
   collectionData,
   doc,
+  docData,
   Firestore,
   orderBy,
 } from '@angular/fire/firestore';
@@ -19,17 +20,33 @@ import { CollectionReference } from '@angular/fire/firestore/lite';
 export class ResumeStore {
   private firestore = inject(Firestore);
 
-  getResumeForm(resumeId: string): Observable<ResumeInstance> {
-    const resumeDoc = doc(this.firestore, `resumes/${resumeId}`);
+  getAllResumes() {
+    const resumesRef = collection(this.firestore, 'resumes');
 
+    const q = query(resumesRef, orderBy('createdAt', 'desc'));
+
+    const resumes = collectionData(q, { idField: 'id' });
+
+    return resumes;
+  }
+
+  getResumeForm(resumeId: string): Observable<ResumeInstance> {
+    const resumeDocRef = doc(this.firestore, `resumes/${resumeId}`);
+    const resumeDoc$ = docData(resumeDocRef) as Observable<ResumeInstance>;
     const objective$ = this.getObjective(resumeId);
     const workExperiences$ = this.getWorkExperience(resumeId);
     const educations$ = this.getEducation(resumeId);
 
-    return combineLatest([objective$, workExperiences$, educations$]).pipe(
-      map(([objective, workExperiences, educations]) => {
+    return combineLatest([
+      objective$,
+      workExperiences$,
+      educations$,
+      resumeDoc$,
+    ]).pipe(
+      map(([objective, workExperiences, educations, resume]) => {
         return {
-          resumeId: resumeDoc.id,
+          resumeId: resumeDocRef.id,
+          resumeName: resume.resumeName,
           objective: objective?.text || '',
           workExperiences: workExperiences || [],
           educations: educations || [],

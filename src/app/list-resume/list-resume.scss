@@ -1,0 +1,25 @@
+@use "@catppuccin/palette/scss/mocha" as mocha;
+
+.resume-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card > a {
+  text-decoration: none;
+}
+
+.card-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 16px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+
+  gap: 15px;
+}

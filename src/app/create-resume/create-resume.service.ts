@@ -2,8 +2,10 @@ import { inject, Injectable } from '@angular/core';
 import {
   addDoc,
   collection,
+  doc,
   Firestore,
   serverTimestamp,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { ResumeInstance } from '../resume/resume.model';
 
@@ -22,6 +24,10 @@ export class CreateResumeService {
   }
 
   async createOrUpdate(resume: ResumeInstance): Promise<string> {
+    await updateDoc(doc(this.firestore, `resumes/${resume.resumeId}`), {
+      resumeName: resume.resumeName,
+    });
+
     await addDoc(collection(this.firestore, 'objectives'), {
       resumeId: resume.resumeId,
       text: resume.objective,

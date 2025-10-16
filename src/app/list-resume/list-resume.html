@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    <div>Resume ID</div>
+    <div>Resume Name</div>
+  </div>
+  @for (resume of resumes(); track resume.id) {
+    <div class="alternate-card">
+      <div class="resume-row">
+        <span>
+          {{ resume.id }}
+        </span>
+        <span> resume_name_here </span>
+
+        <div class="icon-container">
+          <a [routerLink]="['/resume', 'edit', resume.id]">
+            <div class="icon-container">
+              <span class="material-symbols-outlined"> edit </span>
+            </div>
+          </a>
+
+          <a [routerLink]="['/', resume.id]">
+            <div class="icon-container">
+              <span class="material-symbols-outlined"> arrow_outward </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  }
+</div>

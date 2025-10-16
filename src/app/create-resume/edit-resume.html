@@ -3,24 +3,8 @@
     class="resume-form-container"
     [formGroup]="resumeForm"
   >
-    <div class="form-control">
-      <label for="objective">Objective:</label>
-      <textarea
-        formControlName="objective"
-        placeholder="Enter your resume objective"
-        rows="10"
-      ></textarea>
-
-      <div class="error-message" aria-live="assertive">
-        @if (
-          resumeForm.get("objective")?.invalid &&
-          resumeForm.get("objective")?.dirty &&
-          resumeForm.get("objective")?.errors?.["required"]
-        ) {
-          Objective is required
-        }
-      </div>
-    </div>
+    <app-form-control name="Resume Name" [control]="resumeName" />
+    <app-form-control name="Objective" [control]="objective" [rows]="5"/>
 
     <div class="form-control">
       <h2>Work Experience</h2>

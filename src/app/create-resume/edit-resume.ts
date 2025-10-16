@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, OnDestroy } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -14,16 +14,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ResumeInstance } from '../resume/resume.model';
 import { ResumeStore } from '../services/resume.store';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { WorkExperience } from '../resume/resume-work-experience-section/work-experience.model';
-import { Education } from '../resume/resume-education-section/education.model';
+import { FormResumeControl } from '../common/form-control/form-control';
 
 @Component({
   selector: 'app-edit-resume',
-  imports: [ReactiveFormsModule, CreateWorkExperience, CreateEducation],
+  imports: [
+    ReactiveFormsModule,
+    CreateWorkExperience,
+    CreateEducation,
+    FormResumeControl,
+  ],
   templateUrl: './edit-resume.html',
   styleUrl: './edit-resume.scss',
 })
-export class EditResume {
+export class EditResume implements OnDestroy {
+  ngOnDestroy(): void {
+    this.hydrateFormEffect.destroy();
+  }
+
   formBuilder = inject(FormBuilder);
   router = inject(Router);
 
@@ -66,26 +74,26 @@ export class EditResume {
   buildResumeForm(): FormGroup {
     return new FormGroup({
       resumeId: new FormControl(this.resumeId),
+      resumeName: new FormControl('', [Validators.required]),
       objective: new FormControl('', [Validators.required]),
       workExperiences: this.buildWorkExperiencesFormGroup(),
       educations: this.buildEducationsFormGroup(),
     });
   }
 
-  constructor() {
-    effect(() => {
-      if (
-        this.existingResumeForm() &&
-        this.existingResumeForm()?.educations &&
-        this.existingResumeForm()?.workExperiences &&
-        this.existingResumeForm()?.objective
-      ) {
-        this.setObjective();
-        this.setWorkExperience();
-        this.setEducation();
-      }
-    });
-  }
+  hydrateFormEffect = effect(() => {
+    if (
+      this.existingResumeForm() &&
+      this.existingResumeForm()?.educations &&
+      this.existingResumeForm()?.workExperiences &&
+      this.existingResumeForm()?.objective
+    ) {
+      this.setObjective();
+      this.setWorkExperience();
+      this.setEducation();
+      this.resumeName.setValue(this.existingResumeForm()?.resumeName);
+    }
+  });
 
   setObjective(): void {
     this.resumeForm.setControl(
@@ -138,6 +146,14 @@ export class EditResume {
     return this.resumeForm.get('educations') as FormArray;
   }
 
+  get objective(): FormControl {
+    return this.resumeForm.get('objective') as FormControl;
+  }
+
+  get resumeName(): FormControl {
+    return this.resumeForm.get('resumeName') as FormControl;
+  }
+
   async saveResume() {
     await this.createResume();
   }
@@ -149,10 +165,6 @@ export class EditResume {
 
   async createResume() {
     this.resumeForm.markAllAsDirty();
-
-    if (this.resumeForm.invalid) {
-      console.error('form is invalid', this.resumeForm);
-    }
 
     if (this.resumeForm.valid) {
       await this.createResumeService.createOrUpdate({

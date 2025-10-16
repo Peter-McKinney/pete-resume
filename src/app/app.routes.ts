@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Resume } from './resume/resume';
 import { createResumeGuard } from './create-resume/guards/create-resume.guard';
 import { EditResume } from './create-resume/edit-resume';
+import { ListResume } from './list-resume/list-resume';
 
 export const routes: Routes = [
   {
@@ -16,5 +17,9 @@ export const routes: Routes = [
   {
     path: 'resume/edit/:resumeId',
     component: EditResume,
+  },
+  {
+    path: 'resume/list',
+    component: ListResume,
   },
 ];
