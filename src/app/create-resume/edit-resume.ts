@@ -14,6 +14,7 @@ import { ResumeStore } from '../services/resume.store';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormResumeControl } from '../common/form-control/form-control';
 import { FormService } from './services/form.service';
+import { IconDirective } from '../common/directives/icon';
 
 @Component({
   selector: 'app-edit-resume',
@@ -22,6 +23,7 @@ import { FormService } from './services/form.service';
     CreateWorkExperience,
     CreateEducation,
     FormResumeControl,
+    IconDirective,
   ],
   templateUrl: './edit-resume.html',
   styleUrl: './edit-resume.scss',

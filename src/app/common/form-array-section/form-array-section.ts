@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { IconDirective } from '../directives/icon';
 
 @Component({
   selector: 'app-form-array-section',
-  imports: [],
+  imports: [IconDirective],
   templateUrl: './form-array-section.html',
   styleUrl: './form-array-section.scss',
 })

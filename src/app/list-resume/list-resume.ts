@@ -4,10 +4,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { DatePipe } from '@angular/common';
+import { IconDirective } from '../common/directives/icon';
 
 @Component({
   selector: 'app-list-resume',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, IconDirective],
   templateUrl: './list-resume.html',
   styleUrl: './list-resume.scss',
 })

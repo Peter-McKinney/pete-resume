@@ -1,6 +1,6 @@
 <div class="contact-info-container">
   <a [routerLink]="['/']">
-    <span class="material-symbols-outlined">home </span>
+    <span appIcon="home"></span>
     Home</a
   >
   <a target="_blank" rel="noopener noreferrer" [href]="contactInfo().github">
@@ -14,11 +14,11 @@
   >
 
   <a [routerLink]="['/resume', 'create']">
-    <span class="material-symbols-outlined">note_add </span>
+    <span appIcon="note_add"></span>
     Create Resume
   </a>
   <a [routerLink]="['/resume', 'list']">
-    <span class="material-symbols-outlined">list_alt </span>
+    <span appIcon="list_alt"></span>
     Resume Versions
   </a>
 </div>

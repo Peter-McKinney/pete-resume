@@ -1,8 +1,9 @@
 import { Component, output } from '@angular/core';
+import { IconDirective } from '../directives/icon';
 
 @Component({
   selector: 'app-form-array-sub-section',
-  imports: [],
+  imports: [IconDirective],
   templateUrl: './form-array-sub-section.html',
   styleUrl: './form-array-sub-section.scss',
 })

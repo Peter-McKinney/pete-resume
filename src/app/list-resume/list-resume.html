@@ -10,25 +10,28 @@
         <span class="resume-field">
           {{ resume.id }}
         </span>
+
         <span class="resume-name"> {{ resume.resumeName }} </span>
 
         <span class="resume-field">
           {{ resume.createdAt | date: "short" }}
         </span>
+
         <div class="icon-container">
           <button
             type="button"
-            class="material-symbols-outlined"
+            appIcon="content_copy"
             (click)="copyResumeUrl(resume.id)"
           >
             content_copy
           </button>
+
           <a [routerLink]="['/resume', 'edit', resume.id]">
-            <span class="material-symbols-outlined"> edit </span>
+            <span appIcon="edit"></span>
           </a>
 
           <a [routerLink]="['/', resume.id]">
-            <span class="material-symbols-outlined"> arrow_outward </span>
+            <span appIcon="arrow_outward"></span>
           </a>
         </div>
       </div>
