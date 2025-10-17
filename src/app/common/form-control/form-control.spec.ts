@@ -1,17 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { FormControl } from './form-control';
+import { FormResumeControl } from './form-control';
 
 describe('FormControl', () => {
-  let component: FormControl;
-  let fixture: ComponentFixture<FormControl>;
+  let component: FormResumeControl;
+  let fixture: ComponentFixture<FormResumeControl>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormControl],
+      imports: [FormResumeControl],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FormControl);
+    fixture = TestBed.createComponent(FormResumeControl);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

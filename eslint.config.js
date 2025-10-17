@@ -5,7 +5,7 @@ const angular = require("angular-eslint");
 
 module.exports = [
   {
-    ignores: [".angular/**"],
+    ignores: [".angular/**", "dist/**", "node_modules/**"],
   },
   ...tseslint.config(
     {

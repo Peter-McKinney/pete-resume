@@ -10,7 +10,13 @@ import {
   connectFirestoreEmulator,
 } from '@angular/fire/firestore';
 import { provideRouter } from '@angular/router';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirebaseApp, initializeApp, getApp } from '@angular/fire/app';
+import {
+  provideAppCheck,
+  initializeAppCheck,
+  ReCaptchaV3Provider,
+} from '@angular/fire/app-check';
+
 import { environment } from '../environments/environment';
 import firebaseJson from '../../firebase.json';
 
@@ -39,5 +45,11 @@ export const appConfig: ApplicationConfig = {
 
       return firestore;
     }),
+    provideAppCheck(() =>
+      initializeAppCheck(getApp(), {
+        provider: new ReCaptchaV3Provider(environment.recaptchaSiteKey),
+        isTokenAutoRefreshEnabled: true,
+      }),
+    ),
   ],
 };
