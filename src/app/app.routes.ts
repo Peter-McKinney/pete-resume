@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
-import { Resume } from './resume/resume';
+
 import { createResumeGuard } from './create-resume/guards/create-resume.guard';
-import { EditResume } from './create-resume/edit-resume';
-import { ListResume } from './list-resume/list-resume';
 
 export const routes: Routes = [
   {
@@ -12,19 +10,22 @@ export const routes: Routes = [
   },
   {
     path: ':resumeId',
-    component: Resume,
+    loadComponent: () => import('./resume/resume').then((m) => m.Resume),
   },
   {
     path: 'resume/create',
-    component: EditResume,
+    loadComponent: () =>
+      import('./create-resume/edit-resume').then((m) => m.EditResume),
     canActivate: [createResumeGuard],
   },
   {
     path: 'resume/edit/:resumeId',
-    component: EditResume,
+    loadComponent: () =>
+      import('./create-resume/edit-resume').then((m) => m.EditResume),
   },
   {
     path: 'resume/list',
-    component: ListResume,
+    loadComponent: () =>
+      import('./list-resume/list-resume').then((m) => m.ListResume),
   },
 ];
