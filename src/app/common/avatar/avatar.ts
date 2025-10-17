@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './avatar.html',
   styleUrl: './avatar.scss',
 })
-export class Avatar {}
+export class Avatar {
+  readonly imageUrl = input.required<string>();
+}

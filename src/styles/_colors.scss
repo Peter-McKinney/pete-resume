@@ -1,0 +1,17 @@
+@use "mocha" as mocha;
+
+.success {
+  color: mocha.$green;
+}
+
+.warning {
+  color: mocha.$yellow;
+}
+
+.error {
+  color: mocha.$red;
+}
+
+.info {
+  color: mocha.$blue;
+}
