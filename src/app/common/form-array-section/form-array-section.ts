@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { IconDirective } from '../directives/icon';
 
 @Component({
@@ -8,10 +8,9 @@ import { IconDirective } from '../directives/icon';
   styleUrl: './form-array-section.scss',
 })
 export class FormArraySection {
-  readonly addClicked = output<void>();
+  @Output() addClicked: EventEmitter<void> = new EventEmitter<void>();
 
   add(): void {
-    // TODO: The 'emit' function requires a mandatory void argument
     this.addClicked.emit();
   }
 }
