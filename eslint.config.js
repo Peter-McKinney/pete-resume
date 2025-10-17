@@ -5,7 +5,12 @@ const angular = require("angular-eslint");
 
 module.exports = tseslint.config(
   {
-    ignores: [".angular/**", "dist/**", "node_modules/**"],
+    ignores: [
+      ".angular/**",
+      "dist/**",
+      "node_modules/**",
+      "storybook-static/**",
+    ],
   },
   {
     files: ["**/*.ts"],

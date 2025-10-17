@@ -14,7 +14,8 @@
     "firestore:deploy:rules": "firebase deploy --only firestore:rules",
     "prepare": "husky",
     "storybook": "ng run pete-resume:storybook",
-    "build-storybook": "ng run pete-resume:build-storybook"
+    "build:storybook": "ng run pete-resume:build-storybook",
+    "deploy:storybook": "npm run build:storybook && gh-pages -d storybook-static"
   },
   "prettier": {
     "overrides": [
@@ -56,6 +57,7 @@
     "angular-eslint": "20.4.0",
     "eslint": "^9.37.0",
     "eslint-plugin-storybook": "^9.1.12",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",
