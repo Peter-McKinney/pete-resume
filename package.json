@@ -10,6 +10,7 @@
     "test": "ng test",
     "format": "prettier --write \"**/*.{ts,html,css,json}\"",
     "lint": "eslint .",
+    "migrations": "ng generate @angular/core:cleanup-unused-imports --no-interactive && ng generate @angular/core:self-closing-tag --no-interactive && ng generate @angular/core:control-flow --no-interactive && ng generate @angular/core:signal-input-migration --no-interactive && ng generate @angular/core:output-migration --no-interactive",
     "emulators": "firebase emulators:start",
     "firestore:deploy:rules": "firebase deploy --only firestore:rules",
     "prepare": "husky",

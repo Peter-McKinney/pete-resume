@@ -1,4 +1,2 @@
 npx lint-staged
-ng generate @angular/core:cleanup-unused-imports
-echo "." | ng generate @angular/core:self-closing-tag
 git update-index --again

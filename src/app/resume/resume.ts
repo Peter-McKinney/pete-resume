@@ -5,7 +5,6 @@ import { ResumeEducationSection } from './resume-education-section/resume-educat
 import { ResumeStore } from '../services/resume.store';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-resume',
@@ -13,7 +12,6 @@ import { CommonModule } from '@angular/common';
     ResumeObjective,
     ResumeWorkExperienceSection,
     ResumeEducationSection,
-    CommonModule,
   ],
   templateUrl: './resume.html',
   styleUrl: './resume.scss',
