@@ -9,10 +9,9 @@ import { Directive, ElementRef, inject, input, OnInit } from '@angular/core';
 })
 export class IconDirective implements OnInit {
   readonly elementRef = inject(ElementRef);
+  readonly iconName = input.required<string>({ alias: 'appIcon' });
 
   ngOnInit(): void {
     this.elementRef.nativeElement.innerText = this.iconName();
   }
-
-  readonly iconName = input.required<string>({ alias: 'appIcon' });
 }

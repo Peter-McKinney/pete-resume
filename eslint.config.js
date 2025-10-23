@@ -22,6 +22,17 @@ module.exports = tseslint.config(
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      "@typescript-eslint/member-ordering": [
+        "error",
+        {
+          default: [
+            "signature", // Type signatures (e.g., index signatures)
+            "field", // Class properties/fields
+            "constructor",
+            "method", // Class methods
+          ],
+        },
+      ],
       "@angular-eslint/directive-selector": [
         "error",
         {

@@ -29,10 +29,6 @@ import { IconDirective } from '../common/directives/icon';
   styleUrl: './edit-resume.scss',
 })
 export class EditResume implements OnDestroy {
-  ngOnDestroy(): void {
-    this.hydrateFormEffect.destroy();
-  }
-
   formBuilder = inject(FormBuilder);
   formService = inject(FormService);
 
@@ -60,6 +56,10 @@ export class EditResume implements OnDestroy {
       this.formService.setForm(this.resumeForm, this.resumeFromFirestore()!);
     }
   });
+
+  ngOnDestroy(): void {
+    this.hydrateFormEffect.destroy();
+  }
 
   get workExperiences(): FormArray {
     return this.resumeForm.get('workExperiences') as FormArray;
