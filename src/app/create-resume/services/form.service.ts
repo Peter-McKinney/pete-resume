@@ -97,19 +97,19 @@ export class FormService {
   }
 
   setForm(resumeForm: FormGroup, resumeInstance: ResumeInstance) {
-    this.setObjective(resumeForm, resumeInstance!.objective!);
+    this.setObjective(resumeForm, resumeInstance.objective);
 
     this.setWorkExperience(
       resumeForm.get('workExperiences') as FormArray,
-      resumeInstance!.workExperiences!,
+      resumeInstance.workExperiences,
     );
     this.setEducation(
       resumeForm.get('educations') as FormArray,
-      resumeInstance!.educations!,
+      resumeInstance.educations,
     );
 
     resumeForm.patchValue({
-      resumeName: resumeInstance!.resumeName!,
+      resumeName: resumeInstance.resumeName,
     });
 
     resumeForm.markAsPristine();

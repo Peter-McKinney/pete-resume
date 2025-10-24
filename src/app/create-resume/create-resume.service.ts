@@ -13,7 +13,7 @@ import { ResumeInstance } from '../resume/resume.model';
   providedIn: 'root',
 })
 export class CreateResumeService {
-  private firestore = inject(Firestore);
+  private readonly firestore = inject(Firestore);
 
   async createBlankResume(): Promise<string> {
     const docRef = await addDoc(collection(this.firestore, 'resumes'), {

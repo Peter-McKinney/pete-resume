@@ -10,10 +10,18 @@ module.exports = tseslint.config(
       "dist/**",
       "node_modules/**",
       "storybook-static/**",
+      ".storybook/**",
     ],
   },
   {
     files: ["**/*.ts"],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: ["./tsconfig.app.json", "./tsconfig.spec.json"],
+        ecmaVersion: "latest",
+      },
+    },
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.recommended,
@@ -22,15 +30,44 @@ module.exports = tseslint.config(
     ],
     processor: angular.processInlineTemplates,
     rules: {
+      "dot-notation": "off",
+      "@typescript-eslint/dot-notation": "error",
+      "@typescript-eslint/prefer-readonly": "error",
+      "@typescript-eslint/prefer-includes": "error",
+      "@typescript-eslint/prefer-function-type": "error",
+      "@typescript-eslint/prefer-for-of": "error",
+      "@typescript-eslint/prefer-find": "error",
+      "@typescript-eslint/consistent-indexed-object-style": "error",
+      "@typescript-eslint/array-type": "error",
+      "@typescript-eslint/unified-signatures": "error",
+      "@typescript-eslint/return-await": "error",
+      "@typescript-eslint/prefer-return-this-type": "error",
+      "@typescript-eslint/prefer-reduce-type-parameter": "error",
+      "@typescript-eslint/prefer-literal-enum-member": "error",
+      // we must turn off the base rule when using the TS one
+      "no-useless-constructor": "off",
+      "@typescript-eslint/no-useless-constructor": "error",
+      "@typescript-eslint/no-unnecessary-type-conversion": "error",
+      "@typescript-eslint/no-unnecessary-type-arguments": "error",
+      "@typescript-eslint/no-unnecessary-template-expression": "error",
+      "@typescript-eslint/no-unnecessary-condition": "error",
+      "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+      //probably not needed if no-non-null-assertion is enabled
+      "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
+      //might cause significant problems
+      "@typescript-eslint/no-non-null-assertion": "error",
+      "@typescript-eslint/no-mixed-enums": "error",
+      "@typescript-eslint/no-misused-spread": "error",
+      "@typescript-eslint/no-meaningless-void-operator": "error",
+      "@typescript-eslint/no-invalid-void-type": "error",
+      "@typescript-eslint/no-extraneous-class": "error",
+      "@typescript-eslint/no-dynamic-delete": "error",
+      "@typescript-eslint/no-confusing-void-expression": "error",
+      "@angular-eslint/no-output-native": "error",
       "@typescript-eslint/member-ordering": [
         "error",
         {
-          default: [
-            "signature", // Type signatures (e.g., index signatures)
-            "field", // Class properties/fields
-            "constructor",
-            "method", // Class methods
-          ],
+          default: ["signature", "field", "constructor", "method"],
         },
       ],
       "@angular-eslint/directive-selector": [
@@ -65,6 +102,11 @@ module.exports = tseslint.config(
       ...angular.configs.templateAccessibility,
     ],
     rules: {
+      "@angular-eslint/template/eqeqeq": ["error"],
+      "@angular-eslint/template/no-any": ["error"],
+      "@angular-eslint/template/no-distracting-elements": ["error"],
+      "@angular-eslint/template/prefer-at-else": ["error"],
+      "@angular-eslint/template/no-empty-control-flow": ["error"],
       "@angular-eslint/template/prefer-control-flow": ["error"],
       "@angular-eslint/template/use-track-by-function": ["error"],
       "@angular-eslint/template/prefer-template-literal": ["error"],

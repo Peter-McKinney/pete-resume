@@ -8,7 +8,7 @@ import { IconDirective } from '../directives/icon';
   styleUrl: './form-array-card.scss',
 })
 export class FormArrayCard {
-  deleteClicked = output<void>();
+  deleteClicked = output();
 
   delete(): void {
     this.deleteClicked.emit();

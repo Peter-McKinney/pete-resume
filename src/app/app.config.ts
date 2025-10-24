@@ -36,7 +36,7 @@ export const appConfig: ApplicationConfig = {
           connectFirestoreEmulator(
             firestore,
             'localhost',
-            firebaseJson?.emulators?.firestore?.port,
+            firebaseJson.emulators.firestore.port,
           );
         } catch (error) {
           console.error('Error connecting to Firestore emulator:', error);

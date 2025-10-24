@@ -8,8 +8,8 @@ import { IconDirective } from '../directives/icon';
   styleUrl: './form-array-sub-section.scss',
 })
 export class FormArraySubSection {
-  deleteClicked = output<void>();
-  addClicked = output<void>();
+  deleteClicked = output();
+  addClicked = output();
 
   delete(): void {
     this.deleteClicked.emit();

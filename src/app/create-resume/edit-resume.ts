@@ -38,7 +38,7 @@ export class EditResume implements OnDestroy {
   resumeStore = inject(ResumeStore);
 
   activatedRoute = inject(ActivatedRoute);
-  resumeId = this.activatedRoute.snapshot?.params['resumeId'];
+  resumeId = this.activatedRoute.snapshot.params['resumeId'];
 
   readonly resumeFromFirestore = toSignal(
     this.resumeStore.getResumeForm(this.resumeId),
@@ -53,7 +53,9 @@ export class EditResume implements OnDestroy {
       this.resumeFromFirestore()?.workExperiences &&
       this.resumeFromFirestore()?.objective
     ) {
-      this.formService.setForm(this.resumeForm, this.resumeFromFirestore()!);
+      const resumeInstance =
+        this.resumeFromFirestore() ?? ({} as ResumeInstance);
+      this.formService.setForm(this.resumeForm, resumeInstance);
     }
   });
 

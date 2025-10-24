@@ -29,7 +29,7 @@ export interface ResumeSummary {
   providedIn: 'root',
 })
 export class ResumeStore {
-  private firestore = inject(Firestore);
+  private readonly firestore = inject(Firestore);
 
   getAllResumes(): Observable<ResumeSummary[]> {
     const resumesRef = collection(this.firestore, 'resumes');
@@ -64,9 +64,9 @@ export class ResumeStore {
         return {
           resumeId: resumeDocRef.id,
           resumeName: resume.resumeName,
-          objective: objective?.text || '',
-          workExperiences: workExperiences || [],
-          educations: educations || [],
+          objective: objective.text || '',
+          workExperiences: workExperiences,
+          educations: educations,
         };
       }),
     );
