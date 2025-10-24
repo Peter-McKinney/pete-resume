@@ -1,19 +1,20 @@
 import { inject, Injectable } from '@angular/core';
 import { collection, limit, query, where } from 'firebase/firestore';
-import { Observable, combineLatest, map } from 'rxjs';
-import { WorkExperience } from '../resume/resume-work-experience-section/work-experience.model';
+import type { Observable } from 'rxjs';
+import { combineLatest, map } from 'rxjs';
+import type { WorkExperience } from '../resume/resume-work-experience-section/work-experience.model';
+import type { DocumentData, Query, Timestamp } from '@angular/fire/firestore';
 import {
   collectionData,
   doc,
   docData,
   Firestore,
   orderBy,
-  Timestamp,
 } from '@angular/fire/firestore';
-import { Education } from '../resume/resume-education-section/education.model';
-import { Objective } from '../resume/resume-objective/objective.model';
-import { ResumeInstance } from '../resume/resume.model';
-import { CollectionReference } from '@angular/fire/firestore/lite';
+import type { Education } from '../resume/resume-education-section/education.model';
+import type { Objective } from '../resume/resume-objective/objective.model';
+import type { ResumeInstance } from '../resume/resume.model';
+import type { CollectionReference } from '@angular/fire/firestore/lite';
 
 export interface ResumeSummaryDoc {
   createdAt: Timestamp;
@@ -31,7 +32,7 @@ export interface ResumeSummary {
 export class ResumeStore {
   private readonly firestore = inject(Firestore);
 
-  getAllResumes(): Observable<ResumeSummary[]> {
+  public getAllResumes(): Observable<ResumeSummary[]> {
     const resumesRef = collection(this.firestore, 'resumes');
 
     const q = query(resumesRef, orderBy('createdAt', 'desc'));
@@ -47,7 +48,7 @@ export class ResumeStore {
     );
   }
 
-  getResumeForm(resumeId: string): Observable<ResumeInstance> {
+  public getResumeForm(resumeId: string): Observable<ResumeInstance> {
     const resumeDocRef = doc(this.firestore, `resumes/${resumeId}`);
     const resumeDoc$ = docData(resumeDocRef) as Observable<ResumeInstance>;
     const objective$ = this.getObjective(resumeId);
@@ -72,7 +73,7 @@ export class ResumeStore {
     );
   }
 
-  getLatestQuery(ref: CollectionReference, resumeId: string) {
+  public getLatestQuery(ref: CollectionReference, resumeId: string): Query {
     const q = query(
       ref,
       where('resumeId', '==', resumeId),
@@ -84,7 +85,7 @@ export class ResumeStore {
     return q;
   }
 
-  getObjective(resumeId: string): Observable<Objective> {
+  public getObjective(resumeId: string): Observable<Objective> {
     if (!resumeId) {
       throw new Error('Resume ID is required to get objective');
     }
@@ -94,11 +95,11 @@ export class ResumeStore {
     const q = this.getLatestQuery(objectiveRef, resumeId);
 
     return collectionData(q, { idField: 'id' }).pipe(
-      map((objectives) => objectives[0] as Objective),
+      map((objectives: DocumentData) => objectives[0] as Objective),
     );
   }
 
-  getWorkExperience(resumeId: string): Observable<WorkExperience[]> {
+  public getWorkExperience(resumeId: string): Observable<WorkExperience[]> {
     if (!resumeId) {
       throw new Error('Resume ID is required to get work experience.');
     }
@@ -116,7 +117,7 @@ export class ResumeStore {
     return workExperiences$;
   }
 
-  getEducation(resumeId: string): Observable<Education[]> {
+  public getEducation(resumeId: string): Observable<Education[]> {
     if (!resumeId) {
       throw new Error('Resume ID is required to get education');
     }

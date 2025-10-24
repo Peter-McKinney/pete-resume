@@ -1,10 +1,6 @@
 import { Component, input } from '@angular/core';
-import {
-  FormArray,
-  FormControl,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import type { FormArray } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormArraySection } from '../../common/form-array-section/form-array-section';
 import { FormResumeControl } from '../../common/form-control/form-control';
 import { FormArraySubSection } from '../../common/form-array-sub-section/form-array-sub-section';
@@ -23,11 +19,11 @@ import { FormArraySubSection } from '../../common/form-array-sub-section/form-ar
 export class CreateNotes {
   readonly notes = input.required<FormArray<FormControl>>();
 
-  addNote() {
+  addNote(): void {
     this.notes().push(new FormControl('', [Validators.required]));
   }
 
-  removeNote(index: number) {
+  removeNote(index: number): void {
     this.notes().removeAt(index);
   }
 }

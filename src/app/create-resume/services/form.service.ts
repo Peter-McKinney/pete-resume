@@ -1,14 +1,14 @@
 import { inject, Injectable } from '@angular/core';
+import type { FormArray } from '@angular/forms';
 import {
-  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { WorkExperience } from '../../resume/resume-work-experience-section/work-experience.model';
-import { Education } from '../../resume/resume-education-section/education.model';
-import { ResumeInstance } from '../../resume/resume.model';
+import type { WorkExperience } from '../../resume/resume-work-experience-section/work-experience.model';
+import type { Education } from '../../resume/resume-education-section/education.model';
+import type { ResumeInstance } from '../../resume/resume.model';
 
 @Injectable({
   providedIn: 'root',
@@ -96,7 +96,7 @@ export class FormService {
     });
   }
 
-  setForm(resumeForm: FormGroup, resumeInstance: ResumeInstance) {
+  setForm(resumeForm: FormGroup, resumeInstance: ResumeInstance): void {
     this.setObjective(resumeForm, resumeInstance.objective);
 
     this.setWorkExperience(

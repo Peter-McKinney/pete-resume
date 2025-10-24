@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Card } from './card.model';
+import type { Card } from './card.model';
 
 @Component({
   selector: 'app-resume-card',

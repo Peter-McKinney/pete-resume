@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Header } from '../../resume/resume-header/resume-header.model';
+import type { Header } from '../../resume/resume-header/resume-header.model';
 import { ResumeHeader } from '../../resume/resume-header/resume-header';
 
 @Component({

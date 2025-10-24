@@ -1,4 +1,5 @@
-import { Directive, ElementRef, inject, input, OnInit } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import { Directive, ElementRef, inject, input } from '@angular/core';
 
 @Directive({
   selector: '[appIcon]',

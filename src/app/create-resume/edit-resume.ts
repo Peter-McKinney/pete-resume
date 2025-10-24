@@ -1,15 +1,12 @@
-import { Component, effect, inject, OnDestroy } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import type { OnDestroy } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
+import type { FormArray, FormControl } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CreateWorkExperience } from './create-work-experience/create-work-experience';
 import { CreateEducation } from './create-education/create-education';
 import { CreateResumeService } from './create-resume.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ResumeInstance } from '../resume/resume.model';
+import type { ResumeInstance } from '../resume/resume.model';
 import { ResumeStore } from '../services/resume.store';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormResumeControl } from '../common/form-control/form-control';
@@ -29,6 +26,7 @@ import { IconDirective } from '../common/directives/icon';
   styleUrl: './edit-resume.scss',
 })
 export class EditResume implements OnDestroy {
+  [key: string]: unknown;
   formBuilder = inject(FormBuilder);
   formService = inject(FormService);
 
@@ -79,16 +77,16 @@ export class EditResume implements OnDestroy {
     return this.resumeForm.get('resumeName') as FormControl;
   }
 
-  async saveResume() {
+  async saveResume(): Promise<void> {
     await this.createResume();
   }
 
-  async saveAndExit() {
+  async saveAndExit(): Promise<void> {
     await this.createResume();
     this.router.navigate([this.resumeId]);
   }
 
-  async createResume() {
+  async createResume(): Promise<void> {
     this.resumeForm.markAllAsDirty();
 
     if (this.resumeForm.valid) {

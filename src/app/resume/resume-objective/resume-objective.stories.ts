@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
 import { ResumeObjective } from './resume-objective';
 
 type Story = StoryObj<ResumeObjective>;

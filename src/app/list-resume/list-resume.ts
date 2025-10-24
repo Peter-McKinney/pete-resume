@@ -17,7 +17,7 @@ export class ListResume {
   readonly resumes = toSignal(this.resumeStore.getAllResumes());
   clipboard = inject(Clipboard);
 
-  copyResumeUrl(resumeId: string) {
+  copyResumeUrl(resumeId: string): void {
     const url = `${document.location.origin}/${resumeId}`;
     this.clipboard.copy(url);
   }

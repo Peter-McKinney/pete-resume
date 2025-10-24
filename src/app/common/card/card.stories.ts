@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
+import type { Meta, StoryObj } from '@storybook/angular';
 import { ResumeCard } from './card';
 
 type Story = StoryObj<ResumeCard>;

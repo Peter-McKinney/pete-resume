@@ -1,8 +1,8 @@
 import { Component, computed, input } from '@angular/core';
 
-import { Card } from '../../common/card/card.model';
+import type { Card } from '../../common/card/card.model';
 import { ResumeCard } from '../../common/card/card';
-import { WorkExperience } from './work-experience.model';
+import type { WorkExperience } from './work-experience.model';
 
 @Component({
   selector: 'app-resume-work-experience-section',

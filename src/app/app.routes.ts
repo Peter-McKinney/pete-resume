@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import type { Routes } from '@angular/router';
 
 import { createResumeGuard } from './create-resume/guards/create-resume.guard';
 
@@ -10,22 +10,22 @@ export const routes: Routes = [
   },
   {
     path: ':resumeId',
-    loadComponent: () => import('./resume/resume').then((m) => m.Resume),
+    loadComponent: async () => import('./resume/resume').then((m) => m.Resume),
   },
   {
     path: 'resume/create',
-    loadComponent: () =>
+    loadComponent: async () =>
       import('./create-resume/edit-resume').then((m) => m.EditResume),
     canActivate: [createResumeGuard],
   },
   {
     path: 'resume/edit/:resumeId',
-    loadComponent: () =>
+    loadComponent: async () =>
       import('./create-resume/edit-resume').then((m) => m.EditResume),
   },
   {
     path: 'resume/list',
-    loadComponent: () =>
+    loadComponent: async () =>
       import('./list-resume/list-resume').then((m) => m.ListResume),
   },
 ];

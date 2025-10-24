@@ -1,6 +1,6 @@
 import { Component, computed, input } from '@angular/core';
-import { Education } from './education.model';
-import { Card } from '../../common/card/card.model';
+import type { Education } from './education.model';
+import type { Card } from '../../common/card/card.model';
 import { ResumeCard } from '../../common/card/card';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Header } from './resume-header.model';
+import type { Header } from './resume-header.model';
 import { Avatar } from '../../common/avatar/avatar';
 import { ResumeContactInfo } from '../resume-contact-info/resume-contact-info';
 

@@ -1,5 +1,6 @@
 import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import type { CanActivateFn } from '@angular/router';
+import { Router } from '@angular/router';
 import { CreateResumeService } from '../create-resume.service';
 
 export const createResumeGuard: CanActivateFn = async () => {

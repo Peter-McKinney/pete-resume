@@ -7,7 +7,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from '@angular/fire/firestore';
-import { ResumeInstance } from '../resume/resume.model';
+import type { ResumeInstance } from '../resume/resume.model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { Component, inject, input } from '@angular/core';
+import type { FormArray } from '@angular/forms';
 import {
-  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -44,7 +44,7 @@ export class CreateWorkExperience {
     return this.workExperiences().at(i).get('companyName') as FormControl;
   }
 
-  addWorkExperience() {
+  addWorkExperience(): void {
     this.workExperiences().push(
       new FormGroup({
         title: new FormControl('', [Validators.required]),
@@ -57,7 +57,7 @@ export class CreateWorkExperience {
     );
   }
 
-  removeWorkExperience(index: number) {
+  removeWorkExperience(index: number): void {
     this.workExperiences().removeAt(index);
   }
 }

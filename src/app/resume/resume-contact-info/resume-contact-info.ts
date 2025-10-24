@@ -1,5 +1,5 @@
 import { Component, computed, input } from '@angular/core';
-import { ContactInfo } from './contact-info.model';
+import type { ContactInfo } from './contact-info.model';
 import { RouterLink } from '@angular/router';
 import { IconDirective } from '../../common/directives/icon';
 
