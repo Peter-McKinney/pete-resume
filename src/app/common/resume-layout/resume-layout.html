@@ -1,5 +1,8 @@
 <header class="header-layout animate__animated animate__fadeIn">
-  <app-resume-header [resumeHeader]="header" />
+  <div class="header-content-container">
+    <app-resume-header [resumeHeader]="header" />
+    <app-resume-skills [skills]="skills" />
+  </div>
 </header>
 <div class="layout-container">
   <div class="sidebar-layout">

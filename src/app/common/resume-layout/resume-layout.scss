@@ -5,11 +5,18 @@
   flex-direction: row;
 }
 
+.header-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .header-layout {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10px;
+
   @media (max-width: 768px) {
     display: flex;
   }

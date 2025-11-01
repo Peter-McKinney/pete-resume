@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import type { Header } from '../../resume/resume-header/resume-header.model';
 import { ResumeHeader } from '../../resume/resume-header/resume-header';
+import { ResumeSkills } from '../../resume/resume-skills/resume-skills';
+import type { Skill } from '../../resume/resume-skills/skill.model';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [ResumeHeader],
+  imports: [ResumeHeader, ResumeSkills],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
@@ -19,4 +21,32 @@ export class Sidebar {
       stateAbbreviation: 'Fl',
     },
   };
+
+  skills: Skill[] = [
+    {
+      name: 'Angular',
+    },
+    { name: 'Vue' },
+    { name: 'JavaScript' },
+    { name: 'TypeScript' },
+    { name: 'Nodejs' },
+    { name: 'NestJs' },
+    { name: 'Unit Testing' },
+    { name: 'JSON' },
+    { name: 'CSS' },
+    { name: 'SCSS' },
+    { name: 'Github Actions' },
+    { name: 'jQuery' },
+    { name: 'C#' },
+    { name: 'LINQ' },
+    { name: 'ASP.NET MVC 3/4/5/Core' },
+    { name: 'Classic ASP' },
+    { name: 'ASP.NET Web Forms' },
+    { name: 'Windows Forms' },
+    { name: 'SSIS' },
+    { name: 'SSRS' },
+    { name: 'Entity Framework' },
+    { name: 'Apache Cordova' },
+    { name: 'Git' },
+  ];
 }

@@ -1,0 +1,14 @@
+<div class="resume-skills-container">
+  <div class="resume-skills-header">
+    <h2 class="skills-section-title">Skills</h2>
+  </div>
+  <div class="resume-skills">
+    <ul>
+      @for (skill of skills(); track $index) {
+        <li>
+          {{ skill.name }}
+        </li>
+      }
+    </ul>
+  </div>
+</div>

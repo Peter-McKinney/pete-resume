@@ -13,6 +13,6 @@ export class IconDirective implements OnInit {
   readonly iconName = input.required<string>({ alias: 'appIcon' });
 
   ngOnInit(): void {
-    this.elementRef.nativeElement.innerText = this.iconName();
+    (this.elementRef.nativeElement as HTMLElement).innerText = this.iconName();
   }
 }

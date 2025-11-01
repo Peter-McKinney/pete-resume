@@ -18,7 +18,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class Resume {
   route = inject(ActivatedRoute);
-  routeResumeId = this.route.snapshot.params['resumeId'];
+  routeResumeId = this.route.snapshot.params['resumeId'] as string;
   resumeStore = inject(ResumeStore);
 
   readonly objective = toSignal(

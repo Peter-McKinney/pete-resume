@@ -24,14 +24,18 @@ module.exports = tseslint.config(
     },
     extends: [
       eslint.configs.recommended,
-      ...tseslint.configs.strict,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylistic,
+      ...tseslint.configs.strictTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
       ...angular.configs.tsRecommended,
     ],
     processor: angular.processInlineTemplates,
     rules: {
-      "@typescript-eslint/prefer-enum-initializers": "error",
+      "@typescript-eslint/unbound-method": [
+        "error",
+        {
+          ignoreStatic: true,
+        },
+      ],
       "no-use-before-define": "off",
       "@typescript-eslint/no-use-before-define": "error",
       "@typescript-eslint/no-unnecessary-parameter-property-assignment":

@@ -40,9 +40,10 @@ export class ResumeStore {
     return collectionData(q, { idField: 'id' }).pipe(
       map(
         (docs) =>
-          docs.map((d) => ({
+          docs.map((d: DocumentData) => ({
             ...d,
-            createdAt: d['createdAt']?.toDate() ?? null,
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+            createdAt: d['createdAt'].toDate(),
           })) as ResumeSummary[],
       ),
     );

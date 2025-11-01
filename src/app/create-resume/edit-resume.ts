@@ -36,7 +36,7 @@ export class EditResume implements OnDestroy {
   resumeStore = inject(ResumeStore);
 
   activatedRoute = inject(ActivatedRoute);
-  resumeId = this.activatedRoute.snapshot.params['resumeId'];
+  resumeId = this.activatedRoute.snapshot.params['resumeId'] as string;
 
   readonly resumeFromFirestore = toSignal(
     this.resumeStore.getResumeForm(this.resumeId),
@@ -46,7 +46,6 @@ export class EditResume implements OnDestroy {
 
   hydrateFormEffect = effect(() => {
     if (
-      this.resumeFromFirestore() &&
       this.resumeFromFirestore()?.educations &&
       this.resumeFromFirestore()?.workExperiences &&
       this.resumeFromFirestore()?.objective
@@ -83,7 +82,7 @@ export class EditResume implements OnDestroy {
 
   async saveAndExit(): Promise<void> {
     await this.createResume();
-    this.router.navigate([this.resumeId]);
+    await this.router.navigate([this.resumeId]);
   }
 
   async createResume(): Promise<void> {
