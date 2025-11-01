@@ -1,6 +1,6 @@
 # Pete Resume
 
-A resume website for Pete (me) written using Angular 20, Google Firebase, and custom SCSS (with a little help from the [catppucin](https://github.com/catppuccin)) mocha pastel color palette.
+A resume website for Pete (me) written using Angular 20, Google Firebase, and custom SCSS (with a little help from the [catppucin](https://github.com/catppuccin) mocha pastel color palette).
 
 ## Running the application locally
 
