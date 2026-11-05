@@ -3,6 +3,10 @@
 .layout-container {
   display: flex;
   flex-direction: row;
+
+  @media print {
+    display: block;
+  }
 }
 
 .header-content-container {
@@ -24,6 +28,11 @@
   @media (min-width: 768px) {
     display: none;
   }
+
+  // Paper width can match either query above, so print must come last to win.
+  @media print {
+    display: flex;
+  }
 }
 
 .sidebar-layout {
@@ -43,6 +52,10 @@
   @media (max-width: 768px) {
     display: none;
   }
+
+  @media print {
+    display: none;
+  }
 }
 
 .main-layout {
@@ -55,5 +68,10 @@
 
   @media (max-width: 768px) {
     margin: 5px 5px;
+  }
+
+  @media print {
+    margin: 10px;
+    width: auto;
   }
 }

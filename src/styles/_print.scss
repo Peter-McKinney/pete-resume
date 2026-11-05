@@ -1,6 +1,44 @@
 @media print {
+  // Without this the page margins print white around the dark background.
+  @page {
+    margin: 0;
+  }
+
+  html,
+  body {
+    height: auto;
+  }
+
   body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  // Printing mid fade-in would otherwise capture partly transparent content.
+  .animate__animated {
+    animation: none !important;
+  }
+
+  .print-hidden {
+    display: none;
+  }
+
+  // Sections span pages: repeat their border and padding on each one.
+  .card,
+  .alternate-card {
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  // Jobs may split between bullets, otherwise a job too tall for the space left
+  // moves to the next page and strands its section's empty frame behind it.
+  p {
+    break-inside: avoid;
+  }
+
+  h2,
+  .card-header,
+  h4 {
+    break-after: avoid;
   }
 }
